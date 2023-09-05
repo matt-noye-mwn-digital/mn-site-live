@@ -1,0 +1,80 @@
+.topBar {
+    background-color: $white;
+
+    padding: .5rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1080;
+
+    .brand {
+        color: $darkPurple;
+        font-family: $roboBold;
+        font-size: 2rem;
+        text-decoration: none;
+        @include transition(all .4s ease-in-out);
+    }
+
+    ul {
+        list-style-type: none;
+        margin-bottom: 0;
+        li {
+            margin-right: 20px;
+            a {
+                color: $black;
+                font-size: 1.15rem;
+
+                text-decoration: none;
+                @include transition(all .4s ease-in-out);
+
+                &:hover {
+                    background-color: transparent;
+                    border: 0;
+                    box-shadow: none;
+                    color: $lightPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+            button {
+                background-color: transparent;
+                border: 0;
+                box-shadow: none;
+                color: $black;
+                font-size: 1.15rem;
+            }
+            a.dropdown-toggle {
+
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+            ul.dropdown-menu {
+                background-color: $white;
+                border-radius: 0;
+                border: 0;
+                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+                li {
+                    a {
+
+                        &:hover {
+                            background-color: transparent;
+                            box-shadow: none;
+                            color: $lightPurple;
+                            outline: none;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    button {
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        color: $black;
+        display: block;
+        font-size: 1.15rem;
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,185 @@
+.pageMain {
+    background-color: $white;
+    border-radius: 20px;
+    padding: 2rem ;
+
+    table {
+        width: 100%;
+        thead {
+            tr {
+                th {
+                    &:last-of-type {
+                        display: flex;
+                        justify-content: flex-end;;
+                    }
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    &:last-of-type {
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    button {
+                        background-color: transparent;
+                        border: 0;
+                        border-radius: 0;
+                        color: $black;
+                        display: block;
+                        font-size: 1.25rem;
+                        margin-left: auto;
+                        outline: none;
+                        text-align: right;
+                        text-decoration: none;
+                        @include transition(all .4s ease-in-out);
+                        width: 100%;
+
+                        &:hover,
+                        &:focus,
+                        &.active {
+                            background-color: transparent;
+                            border: 0;
+                            border-radius: 0;
+                            box-shadow: none;
+                            color: $lightPurple;
+                            outline: none;
+                            text-decoration: none;
+                        }
+                    }
+                    .dropdown-menu {
+                        background-color: $white;
+                        border: 0;
+                        border-radius: 0;
+                        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+                        outline: none;
+                        padding: .5rem 1rem;
+
+                        li {
+                            margin-bottom: 15px;
+                            a, button {
+                                color: $black;
+                                display: block;
+                                font-family: $roboMedium;
+                                font-size: 1rem;
+                                outline: none;
+                                padding: 0;
+                                text-align: left;
+                                text-decoration: none;
+                                @include transition(all .4s ease-in-out);
+                                width: 100%;
+
+                                &:hover {
+                                    background-color: transparent;
+                                    border: 0;
+                                    border-radius: 0;
+                                    box-shadow: none;
+                                    color: $lightPurple;
+                                    outline: none;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    form {
+        .pageFormSecTitle {
+            color: $darkPurple;
+            font-family: $roboBold;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        hr.pageHr {
+            border-top: 1px solid $mediumPurple;
+            margin: 80px 0;
+        }
+        .row {
+            margin-bottom: 20px;
+        }
+        label {
+            color: $black;
+            display: block;
+            font-family: $roboMedium;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        input[type='text'],
+        input[type='email'],
+        input[type='tel'],
+        input[type='number'],
+        input[type='password'],
+        select {
+            background-color: transparent;
+            border: 0;
+            border-bottom: 1px solid $darkPurple;
+            border-radius: 0;
+            color: $black;
+            display: block;
+            font-family: $montsReg;
+            font-size: 1rem;
+            height: 50px;
+            padding: 0 .5rem;
+            @include transition(all .4s ease-in-out);
+            width: 100%;
+
+            &:focus {
+                background-color: $white;
+                border: 0;
+                border-bottom: 1px solid $lightPurple;
+                box-shadow: none;
+                outline: none;
+                text-decoration: none;
+            }
+        }
+        textarea {
+            background-color: $white;
+            border: 0;
+            border-bottom: 1px solid $darkPurple;
+            border-radius: 0;
+
+            display: block;
+            @include transition(all .4s ease-in-out);
+            width: 100%;
+
+            &:focus {
+                background-color: $white;
+                border: 0;
+                border-bottom: 1px solid $lightPurple;
+                box-shadow: none;
+                color: $black;
+                outline: none;
+                text-decoration: none;
+            }
+        }
+        .input-group.input-group-inline {
+            display: flex;
+            flex-direction :row;
+
+            label {
+                color: $mediumPurple;
+                display: inline-block;
+                font-family: $montsReg;
+                font-size: 1rem;
+                margin: 20px;
+                width: auto;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+        .tagsWrapper {
+            height: 200px;
+            overflow-y: auto;
+        }
+        button {
+            display: block;
+        }
+    }
+}

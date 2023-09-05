@@ -1,0 +1,77 @@
+.resourcesPageTop {
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+
+    img.mainBgImage {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 6rem;
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+.resourcesPageCategoryListBanner {
+    background-color: $white;
+    padding: 2rem 0;
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        list-style-type: none;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            a {
+                color: $darkPurple;
+                font-family: $roboBold;
+                font-size: 1.5rem;
+
+                text-decoration: none;
+                @include transition(all .4s ease-in-out);
+
+                &:hover,
+                &.active {
+                    background-color: transparent;
+                    border: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                    color: $lightPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+.resourcesPageMain {
+    background-color: $white;
+    padding: 4rem 0;
+}

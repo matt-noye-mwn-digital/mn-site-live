@@ -1,0 +1,430 @@
+#homepageTop {
+    height: 100vh;
+    position: relative;
+
+    img.mainBgImage {
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 6rem;
+            span {
+                color: transparent;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: $white;
+            }
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 2.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .btn-group {
+            a {
+                margin-right: 2rem;
+            }
+        }
+    }
+    .circles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 30;
+
+        li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+
+            &:nth-child(1) {
+                left: 25%;
+                width: 80px;
+                height: 80px;
+                animation-delay: 0s;
+            }
+            &:nth-child(2) {
+                left: 10%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 2s;
+                animation-duration: 12s;
+            }
+            &:nth-child(3) {
+                left: 70%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 4s;
+            }
+            &:nth-child(4) {
+                left: 40%;
+                width: 60px;
+                height: 60px;
+                animation-delay: 0s;
+                animation-duration: 18s;
+            }
+            &:nth-child(5) {
+                left: 65%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 0s;
+            }
+            &:nth-child(6) {
+                left: 75%;
+                width: 110px;
+                height: 110px;
+                animation-delay: 3s;
+            }
+            &:nth-child(7) {
+                left: 35%;
+                width: 150px;
+                height: 150px;
+                animation-delay: 7s;
+            }
+            &:nth-child(8) {
+                left: 50%;
+                width: 25px;
+                height: 25px;
+                animation-delay: 15s;
+                animation-duration: 45s;
+            }
+            &:nth-child(9) {
+                left: 20%;
+                width: 15px;
+                height: 15px;
+                animation-delay: 2s;
+                animation-duration: 35s;
+            }
+            &:nth-child(10) {
+                left: 85%;
+                width: 150px;
+                height: 150px;
+                animation-delay: 0s;
+                animation-duration: 11s;
+            }
+        }
+    }
+    @keyframes animate {
+
+        0%{
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+            border-radius: 0;
+        }
+
+        100%{
+            transform: translateY(-1000px) rotate(720deg);
+            opacity: 0;
+            border-radius: 50%;
+        }
+
+    }
+    .heroBottomWave {
+        bottom: 0;
+        height: auto;
+        position: absolute;
+        width: 100%;
+        z-index: 20;
+    }
+}
+
+#homepageAboutBanner {
+    background-color: $white;
+    position: relative;
+
+    button.mediumPurpleBtn {
+        display: block;
+        margin: 30px auto;
+        width: 200px;
+    }
+
+
+    img.myAvatarImage {
+        display: block;
+        height: 350px;
+        margin: auto;
+        width: auto;
+    }
+    div.waveBottom {
+        bottom: 0;
+        height: auto;
+        width: 100%;
+        z-index: 20;
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+#homepageWhatIDoBanner {
+    background-color: $mediumPurple;
+
+    h2.sectionTitle {
+        color: $white;
+        margin-bottom: 3rem;
+    }
+
+    .item {
+        background-color: $lightPurple;
+        border-radius: 20px;
+        min-height: 150px;
+        margin-bottom: 2.5rem;
+        padding: 2rem;
+        position: relative;
+        @include transition(all .4s ease-in-out);
+
+        a {
+            height: 100%;
+            position: absolute;
+            text-decoration: none;
+            width: 100%;
+
+            h4 {
+                color: $white;
+                font-family: $roboMedium;
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+                margin-bottom: 2.25rem;
+            }
+            .pageBtn {
+                bottom: 1rem;
+                color: $white;
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+                position: absolute;
+                right: 4rem;
+                @include transition(all .4s ease-in-out);
+            }
+
+            &:hover {
+                box-shadow: none;
+                outline: none;
+                text-decoration: none;
+                .pageBtn {
+                    right: 3rem;
+                    transform: rotate(360deg);
+                }
+            }
+        }
+        &:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: scale(1.1);
+
+        }
+    }
+}
+
+#homepageRecentWorkBanner {
+    background-color: $white;
+    padding: 18rem 0 0 0;
+    position: relative;
+
+    .topWave {
+        height: auto;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 20;
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    .sectionTitle {
+        margin-bottom: 3rem;
+    }
+
+    .portItem {
+        background-color: $mediumPurple;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 300px;
+        margin-bottom: 1.875rem;
+        overflow-x:hidden;
+        padding: 2rem;
+        position: relative;
+        @include transition(all .4s ease-in-out);
+
+        a {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            text-decoration: none;
+            @include transition(all .4s ease-in-out);
+            width: 100%;
+
+            .content {
+                h5 {
+                    color: $white;
+                    font-family: $roboBold;
+                    font-size: 2rem;
+                    margin-bottom: 30px;
+                }
+                p {
+                    color: $white;
+                    font-family: $montsReg;
+                    font-size: 1rem;
+                }
+                width: 50%;
+            }
+
+            img.mainImage {
+                height: 250px;
+                position: absolute;
+                right: -50%;
+                top: 50%;
+                transform: translateY(-50%);
+                @include transition(all .4s ease-in-out);
+                width: auto;
+            }
+            &:hover {
+                .content {
+
+                }
+                img.mainImage {
+                    height: 280px;
+                    right: 0;
+                    width: auto;
+                }
+            }
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .darkPurpleBtn {
+        display: block;
+        margin: 30px auto;
+        width: 200px;
+    }
+
+    div.waveBottom {
+        bottom: 0;
+        height: auto;
+        width: 100%;
+        z-index: 20;
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+
+#homepageWorkWithBanner {
+    background-color: $white;
+    padding: 4rem 0 0 0;
+}
+
+#homepageLatestPostsBanner {
+    background-color: $mediumPurple;
+
+    .sectionTitle {
+        color: $white;
+        margin-bottom: 3rem;
+    }
+
+    .resourceItem {
+        background-color: $lightPurple;
+        border: 0;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        a {
+            .card-header {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                height: 250px;
+                overflow: hidden;
+                padding: 0;
+
+                img {
+                    display: block;
+                    height: 100%;
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+            .card-body {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                padding: 2rem ;
+
+                h5 {
+                    color: $white;
+                    font-family: $roboMedium;
+                    font-size: 2rem;
+                    margin-bottom: 30px;
+                }
+                p {
+                    color: $white;
+                    font-family: $montsReg;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .whiteBgPurpleTxtBtn {
+        display: block;
+        margin: 30px auto;
+        width: 200px;
+    }
+}
+
+#homepageMyProjectsBanner {
+    padding: 16rem 0 4rem 0;
+    position: relative;
+
+    .topWave {
+        height: auto;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 20;
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+
+}

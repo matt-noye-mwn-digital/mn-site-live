@@ -1,0 +1,47 @@
+.postCard {
+    background-color: $lightPurple;
+    border: 0;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+        text-decoration: none;
+        .card-header {
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            height: 250px;
+            overflow: hidden;
+            padding: 0;
+
+            img {
+                display: block;
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+        .card-body {
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            padding: 2rem ;
+
+            h4 {
+                color: $white;
+                font-family: $roboMedium;
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            p {
+                color: $white;
+                font-family: $montsReg;
+                font-size: 1rem;
+            }
+        }
+    }
+}

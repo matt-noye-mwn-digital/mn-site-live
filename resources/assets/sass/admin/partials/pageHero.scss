@@ -1,0 +1,17 @@
+.pageHero {
+    background-color: $white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+
+    h1 {
+        color: $darkPurple;
+        font-family: $roboBold;
+        font-size: 3rem;
+        margin-bottom: 0;
+    }
+}
