@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Knowledgebase;
 use App\Models\KnowledgebaseCategory;
+use Illuminate\Http\Request;
 
 class FrontendKnowledgebaseController extends Controller
 {
@@ -21,12 +22,15 @@ class FrontendKnowledgebaseController extends Controller
 
         return view('frontend.pages.knowledgebase.index', compact('categories','articles', 'categoryCounts'));
     }
+    public function show($categorySlug, $slug) {
+        // Find the article by slug
+        $article = Knowledgebase::where('slug', $slug)
+            ->firstOrFail();
 
-    public function show($slug, $category) {
-        $kbArticle = Knowledgebase::where('slug', $slug)->whereHas('category', function ($query) use ($category) {
-            $query->where('name', $category);
-        })->firstOrFail();
-        return view('frontend.pages.knowledgebase.show', compact('kbArticle'));
+        // Get the category from the article's relationship
+        $category = $article->category;
+
+        return view('frontend.pages.knowledgebase.show', compact('article', 'category'));
     }
 
     public function categoryShow($slug) {
@@ -34,5 +38,13 @@ class FrontendKnowledgebaseController extends Controller
         $categories = KnowledgebaseCategory::orderBy('name', 'asc')->get();
         $articles = Knowledgebase::where('category_id', $category->id)->paginate(24);
         return view('frontend.pages.knowledgebase.category', compact('category', 'categories', 'articles'));
+    }
+
+    public function search(Request $request) {
+        $query = $request->input('query');
+
+        $results = Knowledgebase::search($query)->get();
+
+        return view('frontend.pages.knowledgebase.search', compact('results', 'query'));
     }
 }

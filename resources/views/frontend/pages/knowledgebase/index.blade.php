@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @push('page-title')
-
+    Knowledgebase
 @endpush
 @push('page-description')
 
@@ -33,8 +33,20 @@
 
     {{ Breadcrumbs::render() }}
 
-    <section class="knowledgebaseCategoryListBanner">
+    <section class="knowledgebasePageMain">
         <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="searchFormWrap">
+                        <form action="{{ route('knowledgebase.search') }}" method="get">
+                            <div class="input-group">
+                                <input type="text" name="query" id="query" class="form-control" placeholder="Search the knowledgebase">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <h2 class="sectionTitle">Categories</h2>

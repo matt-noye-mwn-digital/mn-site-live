@@ -11,7 +11,7 @@
 
                             @if(!is_null($breadcrumb->url) && !$loop->last)
 
-                                <li class="breadcrumb-item"><a href="@{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a></li>
+                                <li class="breadcrumb-item"><a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a></li>
 
                             @else
 

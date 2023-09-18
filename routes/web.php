@@ -86,9 +86,11 @@ Route::prefix('what-i-do')->group(function(){
 });
 
 Route::prefix('knowledgebase')->group(function(){
+    Route::get('search', [FrontendKNowledgebaseController::class, 'search'])->name('knowledgebase.search');
     Route::get('/', [FrontendKnowledgebaseController::class, 'index'])->name('knowledgebase.index');
     Route::get('{slug}', [FrontendKNowledgebaseController::class, 'categoryShow'])->name('knowledgebase.categoryShow');
     Route::get('{category}/{slug}', [FrontendKnowledgebaseController::class, 'show'])->name('knowledgebase.show');
+
 
 });
 
