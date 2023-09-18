@@ -6,6 +6,7 @@
 @import "core/customBtns";
 
 //Frontend Partials
+@import "frontend/partials/breadcrumbsBanner";
 @import "frontend/partials/getStartedBanner";
 @import "frontend/partials/postCard";
 
@@ -19,6 +20,8 @@
 @import "frontend/pages/portfolioMainPage";
 @import "frontend/pages/singlePortfolioPage";
 @import "frontend/pages/knowledgebaseMainPage";
+
+@import "frontend/pages/singleWid";
 
 //Footer
 @import "frontend/partials/footer";

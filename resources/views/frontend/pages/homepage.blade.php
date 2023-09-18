@@ -112,7 +112,7 @@
                 @foreach($wid as $wid)
                     <div class="col-md-3">
                         <div class="item">
-                            <a href="{{ config('app_url') }}/{{ $wid->slug }}" title="{{ $wid->title }} what i do click">
+                            <a href="{{ route('what-i-do.show', ['slug' => $wid->slug]) }}" title="{{ $wid->title }} what i do click">
                                 <h4>{{ $wid->title }}</h4>
                                 <div class="pageBtn">
                                     <i class="fa-solid fa-circle-arrow-right"></i>

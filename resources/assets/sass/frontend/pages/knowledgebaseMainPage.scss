@@ -35,3 +35,49 @@
         }
     }
 }
+.knowledgebaseCategoryListBanner {
+    background-color: $white;
+    padding: 2rem 0;
+    h2 {
+        color: $darkPurple;
+        font-family: $roboBold;
+
+    }
+    ul {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-colums: 3;
+        gap: 25px;
+        list-style-type: none;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: 10px;
+            a {
+                color: $darkPurple;
+                font-family: $roboBold;
+                font-size: 1.25rem;
+
+                text-decoration: none;
+                @include transition(all .4s ease-in-out);
+
+                span.articleCount {
+                    font-size: 1rem;
+                }
+
+                &:hover,
+                &.active {
+                    background-color: transparent;
+                    border: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                    color: $lightPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

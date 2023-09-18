@@ -18,6 +18,9 @@ return new class extends Migration
             $table->tinyInteger('order');
             $table->string('featured_image')->nullable();
             $table->text('main_content');
+            $table->string('seo_title')->nullable();
+            $table->text('seo_keywords')->nullable();
+            $table->text('seo_description')->nullable();
             $table->timestamps();
         });
     }

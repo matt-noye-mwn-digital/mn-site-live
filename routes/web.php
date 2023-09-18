@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminPostTagsController;
 use App\Http\Controllers\Admin\AdminWhatIDoController;
 use App\Http\Controllers\Admin\Pages\AdminHomepageController;
 use App\Http\Controllers\Frontend\FrontendPortfolioController;
+use App\Http\Controllers\Frontend\FrontendWhatIDoController;
 use App\Http\Controllers\Frontend\Pages\FrontendHomepageController;
 use App\Http\Controllers\Frontend\Pages\FrontendKnowledgebaseController;
 use App\Http\Controllers\Frontend\Pages\ResourcePageController;
@@ -69,7 +70,7 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 //Client Routes
 
 //Frontend Routes
-Route::get('/', [FrontendHomepageController::class, 'index']);
+Route::get('/', [FrontendHomepageController::class, 'index'])->name('homepage.index');
 Route::prefix('portfolio')->group(function () {
     Route::get('/', [FrontendPortfolioController::class, 'index'])->name('portfolio.index');
     Route::get('{slug}', [FrontendPortfolioController::class, 'show'])->name('portfolio.show');
@@ -79,8 +80,17 @@ Route::prefix('resources')->group(function(){
     Route::get('{slug}', [ResourcePageController::class, 'showSingleCategory'])->name('category.show');
     Route::get('{category}/{slug}', [ResourcePageController::class, 'showSinglePost'])->name('posts.show');
 });
+Route::prefix('what-i-do')->group(function(){
+    Route::get('/', [FrontendWhatIDoController::class, 'index']);
+    Route::get('{slug}', [FrontendWhatIDoController::class, 'show'])->name('what-i-do.show');
+});
 
-Route::get('/knowledgebase', [FrontendKnowledgebaseController::class, 'index']);
+Route::prefix('knowledgebase')->group(function(){
+    Route::get('/', [FrontendKnowledgebaseController::class, 'index'])->name('knowledgebase.index');
+    Route::get('{slug}', [FrontendKNowledgebaseController::class, 'categoryShow'])->name('knowledgebase.categoryShow');
+    Route::get('{category}/{slug}', [FrontendKnowledgebaseController::class, 'show'])->name('knowledgebase.show');
+
+});
 
 Auth::routes();
 

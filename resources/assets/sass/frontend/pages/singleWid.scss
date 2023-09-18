@@ -1,0 +1,61 @@
+.singleWidTop {
+    height: 70vh;
+    position: relative;
+
+    img.mainBgImage {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 6rem;
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+.singleWidMain {
+    background-color: $white;
+    padding: 4rem 0;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $mediumPurple;
+        font-family: $roboMedium;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: $black;
+        font-family: $montsReg;
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+}

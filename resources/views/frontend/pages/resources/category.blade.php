@@ -21,6 +21,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
+                        <h5>Resources</h5>
                         <h1>{{ $category->name }}</h1>
                         <p>
                             Keep up to date with the latest industry news, My blog and much more.

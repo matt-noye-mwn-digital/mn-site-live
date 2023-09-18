@@ -15,7 +15,7 @@ class ResourcePageController extends Controller
      */
     public function index()
     {
-        $categories = PostCategory::all();
+        $categories = PostCategory::orderBy('name', 'ASC')->get();
         $posts = Post::paginate(12);
 
         return view('frontend.pages.resources.index', compact('categories', 'posts'));

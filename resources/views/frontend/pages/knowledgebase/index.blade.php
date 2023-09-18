@@ -31,10 +31,27 @@
         </div>
     </section>
 
-    <section class="knowledgebasePageMain">
+    {{ Breadcrumbs::render() }}
+
+    <section class="knowledgebaseCategoryListBanner">
         <div class="container">
             <div class="row">
-
+                <div class="col-12">
+                    <h2 class="sectionTitle">Categories</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul>
+                        @foreach($categories as $category)
+                            <li>
+                                <a href="knowledgebase/{{ $category->slug }}">
+                                    {{ $category->name }} <span class="articleCount">({{ $categoryCounts[$category->id] }})</span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
