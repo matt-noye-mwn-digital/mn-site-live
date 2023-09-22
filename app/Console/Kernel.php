@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     {
         //Set the knowledgebase indexing
         $schedule->command('knowledgebase:index')->daily();
+        $schedule->command('sitemap:generate')->daily();
     }
 
     /**

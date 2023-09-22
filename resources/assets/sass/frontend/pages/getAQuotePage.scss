@@ -1,0 +1,231 @@
+.getQuotePageTop {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    img.mainBgImage {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 6rem;
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            width: 55%;
+        }
+    }
+}
+.getQuotePageMain {
+    background-color: $white;
+    padding: 4rem 0;
+
+    form {
+        .row {
+            margin-bottom: 30px;
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+
+            .form-check {
+                align-items: center;
+                border: 1px solid $darkPurple;
+                border-radius: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 100px;
+                margin: 0;
+                overflow: hidden;
+                position: relative;
+                padding: 0;
+                text-align: center;
+                @include transition(all .4s ease-in-out);
+                width: 300px;
+
+                label {
+                    align-items: center;
+                    color: $darkPurple;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: $montsReg;
+                    font-size: 1.25rem;
+                    height: 100%;
+                    justify-content: center;
+                    @include transition(all .4s ease-in-out);
+                    width: 100%;
+                }
+
+                input[type='radio'] {
+                    border-radius: 0;
+                    display: block;
+                    height: 100%;
+                    opacity: 0;
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                    cursor: pointer; // Add cursor pointer for better user interaction
+                    z-index: 1; // Ensure the radio button is clickable
+                }
+
+                &:hover {
+                    background-color: $darkPurple;
+                    box-shadow: none;
+                    color: $white;
+                    outline: none;
+
+                    label {
+                        color: $white;
+                    }
+                }
+
+                // Add styles to hide the radio button when it's not checked
+                input[type='radio']:not(:checked) + label {
+                    display: flex;
+                    flex-direction: column;;
+                    height: 100%;
+                    justify-content: center;
+                    width: 100%;
+                }
+
+                // Add styles for checked radio buttons
+                input[type='radio']:checked + label {
+                    align-items: center;
+                    background-color: $darkPurple;
+                    color: $white;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    justify-content: center;
+                    width: 100%;
+                }
+            }
+        }
+
+        label.mainLabel {
+            color: $darkPurple;
+            display: block;
+            font-family: $roboMedium;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        label {
+            color: $darkPurple;
+            font-family: $montsReg;
+            font-size: 1rem;
+        }
+        small {
+            color: $black;
+            display: block;
+            font-family: $montsLight;
+            font-size: 1rem;
+            margin: 5px 0;
+            width: 100%;
+        }
+        input[type='text'],
+        input[type='tel'],
+        input[type='email'],
+        input[type='date']{
+            background-color: $white;
+            border: 0;
+            border-bottom: 1px solid $darkPurple;
+            display: block;
+            color: $darkPurple;
+            font-family: $montsReg;
+            font-size: 1rem;
+            height: 50px;
+            padding: .5rem;
+            @include transition(all .4s ease-in-out);
+            width: 100%;
+
+            &:focus {
+                background-color: $white;
+                border: 0;
+                border-bottom: 1px solid $mediumPurple;
+                box-shadow: none;
+                color: $darkPurple;
+                outline: none;
+                text-decoration: none;
+            }
+        }
+
+        textarea {
+            background-color: $white;
+            border: 1px solid $darkPurple;
+            border-radius: 20px;
+            color: $darkPurple;
+            display: block;
+            font-family: $montsReg;
+            font-size: 1rem;
+            padding: 1rem;
+            @include transition(all .4s ease-in-out);
+            width: 100%;
+
+            &:focus {
+                background-color: $white;
+                border: 1px solid $mediumPurple;
+                box-shadow: none;
+                color: $darkPurple;
+                outline: none;
+                text-decoration: none;
+            }
+        }
+        h2 {
+            color: $darkPurple;
+            font-family: $roboBold;
+            font-size: 3rem;
+            margin: 30px 0;
+        }
+        button.darkPurpleBtn {
+            background-color: $darkPurple;
+            border: 0;
+            border-radius: 10px;
+            color: $white;
+            font-family: $roboMedium;
+            font-size: 1.25rem;
+            padding: 1rem 2rem;
+            text-align: center;
+            text-decoration: none;
+            @include transition(all .4s ease-in-out);
+
+            .fa-paper-plane {
+                font-size: 0;
+                margin-left: 5px;
+                @include transition(all .4s ease-in-out);
+            }
+
+            &:hover {
+                background-color: $mediumPurple;
+                box-shadow: none;
+                color: $white;
+                outline: none;
+                text-decoration: none;
+                .fa-paper-plane {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

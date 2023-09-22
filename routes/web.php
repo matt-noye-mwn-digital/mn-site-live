@@ -11,12 +11,18 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminPostTagsController;
 use App\Http\Controllers\Admin\AdminWhatIDoController;
 use App\Http\Controllers\Admin\Pages\AdminHomepageController;
+use App\Http\Controllers\Admin\Pages\AdminKnowledgebaseMainPageController;
+use App\Http\Controllers\Frontend\FrontendGetQuoteController;
 use App\Http\Controllers\Frontend\FrontendPortfolioController;
 use App\Http\Controllers\Frontend\FrontendWhatIDoController;
+use App\Http\Controllers\Frontend\Pages\FrontendAboutPageController;
+use App\Http\Controllers\Frontend\Pages\FrontendContactPageController;
 use App\Http\Controllers\Frontend\Pages\FrontendHomepageController;
 use App\Http\Controllers\Frontend\Pages\FrontendKnowledgebaseController;
 use App\Http\Controllers\Frontend\Pages\ResourcePageController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sitemap\SitemapGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +47,7 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
     //Pages
     Route::prefix('pages')->group(function(){
         Route::resource('homepage', AdminHomepageController::class);
+        Route::resource('knowledgebase', AdminKnowledgebaseMainPageController::class);
     });
     Route::resource('pages', AdminPagesController::class);
 
@@ -71,12 +78,13 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 
 //Frontend Routes
 Route::get('/', [FrontendHomepageController::class, 'index'])->name('homepage.index');
+Route::get('/about-me', [FrontendAboutPageController::class, 'index'])->name('about-me');
 Route::prefix('portfolio')->group(function () {
     Route::get('/', [FrontendPortfolioController::class, 'index'])->name('portfolio.index');
     Route::get('{slug}', [FrontendPortfolioController::class, 'show'])->name('portfolio.show');
 });
 Route::prefix('resources')->group(function(){
-    Route::get('/', [ResourcePageController::class, 'index']);
+    Route::get('/', [ResourcePageController::class, 'index'])->name('resources.index');
     Route::get('{slug}', [ResourcePageController::class, 'showSingleCategory'])->name('category.show');
     Route::get('{category}/{slug}', [ResourcePageController::class, 'showSinglePost'])->name('posts.show');
 });
@@ -84,14 +92,29 @@ Route::prefix('what-i-do')->group(function(){
     Route::get('/', [FrontendWhatIDoController::class, 'index']);
     Route::get('{slug}', [FrontendWhatIDoController::class, 'show'])->name('what-i-do.show');
 });
-
 Route::prefix('knowledgebase')->group(function(){
     Route::get('search', [FrontendKNowledgebaseController::class, 'search'])->name('knowledgebase.search');
     Route::get('/', [FrontendKnowledgebaseController::class, 'index'])->name('knowledgebase.index');
     Route::get('{slug}', [FrontendKNowledgebaseController::class, 'categoryShow'])->name('knowledgebase.categoryShow');
     Route::get('{category}/{slug}', [FrontendKnowledgebaseController::class, 'show'])->name('knowledgebase.show');
+});
+Route::prefix('contact-me')->group(function(){
+   Route::get('/', [FrontendContactPageController::class, 'index'])->name('contact-me.index');
+   Route::post('/store', [FrontendContactPageController::class, 'store'])->name('contact-me.store');
+});
+Route::prefix('get-a-quote')->group(function(){
+   route::get('/', [FrontendGetQuoteController::class, 'index'])->name('get-a-quote.index');
+});
 
-
+//Sitemap route do not touch
+Route::get('generate-sitemap', function () {
+    $baseUrl = config('app.url');
+    SitemapGenerator::create($baseUrl)
+        ->writeToFile(public_path('sitemap.xml'));
+});
+Route::get('/generate-sitemap', function() {
+    $exitCode = Artisan::call('sitemap:generate');
+    return "sitemap generated";
 });
 
 Auth::routes();

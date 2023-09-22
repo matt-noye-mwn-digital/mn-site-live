@@ -77,13 +77,13 @@
                                         <li>
                                             <a href="">Edit</a>
                                         </li>
-                                        <li>
+                                        {{--<li>
                                             <form action="" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
                                             </form>
-                                        </li>
+                                        </li>--}}
                                     </ul>
                                 </td>
                             </tr>
@@ -102,13 +102,38 @@
                                         <li>
                                             <a href="">Edit</a>
                                         </li>
-                                        <li>
+                                        {{--<li>
                                             <form action="" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
                                             </form>
+                                        </li>--}}
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Knowledgebase</td>
+                                <td>/knowledgebase</td>
+                                <td>Published</td>
+                                <td>
+                                    <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li>
+                                            <a href="">View</a>
                                         </li>
+                                        <li>
+                                            <a href="">Edit</a>
+                                        </li>
+                                        {{--<li>
+                                            <form action="" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
+                                            </form>
+                                        </li>--}}
                                     </ul>
                                 </td>
                             </tr>

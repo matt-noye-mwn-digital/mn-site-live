@@ -44,6 +44,8 @@
 
             gtag('config', 'G-LB7YT12K2B');
         </script>
+
+        {!! ReCaptcha::htmlScriptTagJsApi() !!}
     </head>
     <body>
         <header>

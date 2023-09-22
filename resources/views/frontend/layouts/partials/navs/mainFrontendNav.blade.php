@@ -12,16 +12,19 @@
                     <a href="/" title="navbar home button">Home</a>
                 </li>
                 <li>
-                    <a href="" title="navbar about button">About</a>
+                    <a href="{{ route('about-me') }}" title="navbar about button">About</a>
                 </li>
                 <li>
-                    <a href="/portfolio" title="navbar portfolio button">Portfolio</a>
+                    <a href="{{ route('portfolio.index') }}" title="navbar portfolio button">Portfolio</a>
                 </li>
                 <li>
-                    <a href="/resources" title="navbar resources button">Resources</a>
+                    <a href="{{ route('resources.index') }}" title="navbar resources button">Resources</a>
                 </li>
                 <li>
-                    <a href="" title="navbar contact me button">Contact Me</a>
+                    <a href="{{ route('contact-me.index') }}" title="navbar contact me button">Contact Me</a>
+                </li>
+                <li>
+                    <a class="getQuoteHeroButton" href="{{ route('get-a-quote.index') }}" title="Get a quote header button">Get a Quote</a>
                 </li>
             </ul>
         </div>

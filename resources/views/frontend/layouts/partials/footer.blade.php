@@ -41,13 +41,13 @@
                             </h5>
                             <ul class="list-unstyled">
                                 <li><a href="/" title="footer home link">Home</a></li>
-                                <li><a href="" title="footer about me link">About Me</a></li>
-                                <li><a href="" title="footer resources link">Resources</a></li>
-                                <li><a href="" title="footer portfolio link">Portfolio</a></li>
+                                <li><a href="{{ route('about-me') }}" title="footer about me link">About Me</a></li>
+                                <li><a href="{{ route('resources.index') }}" title="footer resources link">Resources</a></li>
+                                <li><a href="{{ route('portfolio.index') }}" title="footer portfolio link">Portfolio</a></li>
                                 <li>
-                                    <a href="/knowledgebase" title="knowledgebade main page link">Knowledgebase</a>
+                                    <a href="{{ route('knowledgebase.index') }}" title="knowledgebade main page link">Knowledgebase</a>
                                 </li>
-                                <li><a href="" title="footer contact me link">Contact Me</a></li>
+                                <li><a href="{{ route('contact-me.index') }}" title="footer contact me link">Contact Me</a></li>
                                 <li><a href="" title="footer hire me link">Hire Me</a></li>
                             </ul>
                         </div>

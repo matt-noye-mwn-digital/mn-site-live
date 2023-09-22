@@ -4,6 +4,7 @@
 @import "core/colours";
 @import "core/typography";
 @import "core/customBtns";
+@import "frontend/partials/html";
 
 //Frontend Partials
 @import "frontend/partials/breadcrumbsBanner";
@@ -22,6 +23,9 @@
 @import "frontend/pages/knowledgebaseMainPage";
 
 @import "frontend/pages/singleWid";
+
+@import "frontend/pages/contactMe";
+@import "frontend/pages/getAQuotePage";
 
 //Footer
 @import "frontend/partials/footer";
