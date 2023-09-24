@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('reason_for_contacting')->nullable();
             $table->text('your_message')->nullable();
+            $table->string('how_did_you_hear_about_me')->nullable();
             $table->string('status')->nullable()->default('unread');
             $table->timestamps();
         });

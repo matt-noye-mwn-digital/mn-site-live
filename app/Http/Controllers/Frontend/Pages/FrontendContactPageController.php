@@ -37,6 +37,7 @@ class FrontendContactPageController extends Controller
             'phone_number' => ['nullable', 'regex:/(01)[0-9]{9}/', 'max:14'],
             'company_name' => ['nullable', 'string', 'max:255'],
             'reason_for_contacting' => ['nullable', 'string', 'max:255'],
+            'how_did_you_hear_about_me' => ['nullable', 'string', 'max:255'],
             'your_message' => ['nullable', 'string', 'max:2500'],
             'g-recaptcha-response' => 'recaptcha',
         ]);
@@ -48,6 +49,7 @@ class FrontendContactPageController extends Controller
             'phone_number' => $validated['phone_number'],
             'company_name' => $validated['company_name'],
             'reason_for_contacting' => $validated['reason_for_contacting'],
+            'how_did_you_hear_about_me' => $validated['how_did_you_hear_about_me'],
             'your_message' => $validated['your_message'],
 
         ]);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Frontend\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\GetAQuote;
@@ -39,6 +39,7 @@ class FrontendGetQuoteController extends Controller
             'similar_websites' => ['nullable', 'string', 'max:20000'],
             'complete_project_by' => ['nullable', 'date'],
             'any_other_details' => ['nullable', 'string', 'max:20000'],
+            'your_brief' => ['nullable', 'mimes:pdf,doc,docx,png,jpg,jpeg'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'company_name' => ['nullable', 'string', 'max:255'],
@@ -47,13 +48,14 @@ class FrontendGetQuoteController extends Controller
         ]);
 
         GetAQuote::create([
-            'describe_your' => $validated['describe_you'],
+            'describe_you' => $validated['describe_you'],
             'budget' => $validated['budget'],
             'looking_for' => $validated['looking_for'],
             'pages_required' => $validated['pages_required'],
             'similar_websites' => $validated['similar_websites'],
             'complete_project_by' => $validated['complete_project_by'],
             'any_other_details' => $validated['any_other_details'],
+            'your_brief' => $validated['your_brief'],
             'first_name' => $validated['first_name'],
             'last_name' => $validated['last_name'],
             'company_name' => $validated['company_name'],

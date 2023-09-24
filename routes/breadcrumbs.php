@@ -33,6 +33,11 @@ Breadcrumbs::for('knowledgebase.show', function($trail, $categorySlug, $slug) {
     $trail->push($knowledgebase->title, route('knowledgebase.show', ['category' => $categorySlug, 'slug' => $slug]));
 });
 
+//Get a quote
+Breadcrumbs::for('get-a-quote.index', function(BreadcrumbTrail $trail){
+    $trail->parent('home');
+    $trail->push('Get a Quote', route('get-a-quote.index'));
+});
 
 
 

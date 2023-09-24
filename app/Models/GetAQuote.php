@@ -17,11 +17,13 @@ class GetAQuote extends Model
         'similar_websites',
         'complete_project_by',
         'any_other_details',
+        'your_brief',
         'first_name',
         'last_name',
         'company_name',
         'email_address',
         'phone_number',
+        'your_brief',
         'status'
     ];
 }

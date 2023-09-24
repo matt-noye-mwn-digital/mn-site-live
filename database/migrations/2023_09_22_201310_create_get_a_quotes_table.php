@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('email_address');
             $table->string('phone_number')->nullable();
+            $table->string('your_brief')->nullable();
             $table->string('status')->nullable()->default('unread');
             $table->timestamps();
         });

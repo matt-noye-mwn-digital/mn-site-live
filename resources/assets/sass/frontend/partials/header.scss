@@ -43,7 +43,38 @@ header {
                 &:last-of-type {
                     margin-right: 0;
                 }
+
+                a.getQuoteHeaderButton {
+                    background-color: $mediumPurple;
+                    border: 0;
+                    border-radius :20px;
+                    color: $white;
+                    font-family: $roboMedium;
+                    padding: .75rem 1.5rem;
+                    text-align: center;
+                    @include transition(all .4s ease-in-out);
+
+                    .fa-arrow-right-long {
+                        font-size: 0;
+                        margin-left: 5px;
+                        @include transition(all .4s ease-in-out);
+                    }
+
+                    &:hover {
+                        background-color: $lightPurple;
+                        box-shadow: none;
+                        color: $white;
+                        outline: none;
+                        text-decoration: none;
+
+                        .fa-arrow-right-long {
+                            font-size: 1.1rem;
+                            margin-left: 15px;
+                        }
+                    }
+                }
             }
+
         }
     }
     &.scrolled {
@@ -65,6 +96,24 @@ header {
                         &:hover {
                             box-shadow: none;
                             color: $lightPurple;
+                            outline: none;
+                            text-decoration: none;
+                        }
+                    }
+                    a.getQuoteHeaderButton {
+                        background-color: $mediumPurple;
+                        border: 0;
+                        border-radius :20px;
+                        color: $white;
+                        font-family: $roboMedium;
+                        padding: .75rem 1.5rem;
+                        text-align: center;
+                        @include transition(all .4s ease-in-out);
+
+                        &:hover {
+                            background-color: $lightPurple;
+                            box-shadow: none;
+                            color: $white;
                             outline: none;
                             text-decoration: none;
                         }

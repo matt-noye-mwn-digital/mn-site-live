@@ -163,6 +163,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -188,6 +189,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
 
     ])->toArray(),
 

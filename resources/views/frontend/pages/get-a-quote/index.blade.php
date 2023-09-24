@@ -33,13 +33,13 @@
         </div>
     </section>
 
-    {{--{{ Breadcrumbs::render() }}--}}
+    {{ Breadcrumbs::render() }}
 
     <section class="getQuotePageMain">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form id="biscolab-recaptcha-invisible-form" action="{{ route('get-a-quote.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-12">
@@ -163,6 +163,13 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="" class="mainLabel">Add your brief</label>
+                                <input type="file" name="your_brief" id="your_brief">
+                                <small>Supported file types are: pdf, doc, docx, png, jpg, jpeg</small>
                             </div>
                         </div>
                         <div class="row">

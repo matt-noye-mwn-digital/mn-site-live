@@ -151,7 +151,17 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="">How did you hear about me?</label>
+                                    <input type="text" name="how_did_you_hear_about_me" id="how_did_you_hear_about_me" value="{{ old('how_did_you_hear_about_me') }}">
+                                    @error('how_did_you_hear_about_me')
+                                        <div class="text-danger">
+                                            {{ $error }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-end">
 

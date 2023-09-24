@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminFormSubmissionController;
 use App\Http\Controllers\Admin\AdminKnowledgebaseCategoryController;
 use App\Http\Controllers\Admin\AdminKnowledgebaseController;
 use App\Http\Controllers\Admin\AdminPagesController;
@@ -10,13 +11,14 @@ use App\Http\Controllers\Admin\AdminPostCategoryController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminPostTagsController;
 use App\Http\Controllers\Admin\AdminWhatIDoController;
+use App\Http\Controllers\Admin\AdminWhoWorkWithController;
 use App\Http\Controllers\Admin\Pages\AdminHomepageController;
 use App\Http\Controllers\Admin\Pages\AdminKnowledgebaseMainPageController;
-use App\Http\Controllers\Frontend\FrontendGetQuoteController;
 use App\Http\Controllers\Frontend\FrontendPortfolioController;
 use App\Http\Controllers\Frontend\FrontendWhatIDoController;
 use App\Http\Controllers\Frontend\Pages\FrontendAboutPageController;
 use App\Http\Controllers\Frontend\Pages\FrontendContactPageController;
+use App\Http\Controllers\Frontend\Pages\FrontendGetQuoteController;
 use App\Http\Controllers\Frontend\Pages\FrontendHomepageController;
 use App\Http\Controllers\Frontend\Pages\FrontendKnowledgebaseController;
 use App\Http\Controllers\Frontend\Pages\ResourcePageController;
@@ -38,6 +40,14 @@ use Spatie\Sitemap\SitemapGenerator;
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function(){
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
+    //Form Submissions
+    Route::prefix('form-submissions')->group(function(){
+        Route::get('contact-form', [AdminFormSubmissionController::class, 'contactForm'])->name('form-submissions.contact-form');
+        Route::get('contact-form-single/{id}', [AdminFormSubmissionController::class, 'contactFormSingle'])->name('form-submissions.contact-form-single');
+        Route::get('quote-form', [AdminFormSubmissionController::class, 'quoteForm'])->name('form-submissions.quote-form');
+        Route::get('quote-form-single/{id}', [AdminFormSubmissionController::class, 'quoteFormSingle'])->name('form-submissions.quote-form-single');
+    });
+
     //Knowledgebase
     Route::prefix('knowledgebase')->group(function(){
         Route::resource('knowledgebase-categories', AdminKnowledgebaseCategoryController::class);
@@ -51,11 +61,11 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
     });
     Route::resource('pages', AdminPagesController::class);
 
-    //Portfolio
-    Route::resource('portfolio', AdminPortfolioController::class);
-
     //Personal Projects
     Route::resource('personal-projects', AdminpersonalProjectsController::class);
+
+    //Portfolio
+    Route::resource('portfolio', AdminPortfolioController::class);
 
     //Posts & Categories
     Route::prefix('posts')->group(function(){
@@ -72,6 +82,9 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 
     //What I do
     Route::resource('what-i-do', AdminWhatIDoController::class);
+
+    //Who Work With
+    Route::resource('who-i-work-with', AdminWhoWorkWithController::class);
 });
 
 //Client Routes
@@ -103,7 +116,8 @@ Route::prefix('contact-me')->group(function(){
    Route::post('/store', [FrontendContactPageController::class, 'store'])->name('contact-me.store');
 });
 Route::prefix('get-a-quote')->group(function(){
-   route::get('/', [FrontendGetQuoteController::class, 'index'])->name('get-a-quote.index');
+   Route::get('/', [FrontendGetQuoteController::class, 'index'])->name('get-a-quote.index');
+   Route::post('/store', [FrontendGetQuoteController::class, 'store'])->name('get-a-quote.store');
 });
 
 //Sitemap route do not touch

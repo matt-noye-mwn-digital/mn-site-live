@@ -17,6 +17,7 @@ class ContactFormSubmissions extends Model
         'company_name',
         'reason_for_contacting',
         'your_message',
+        'how_did_you_hear_about_me',
         'status',
     ];
 }

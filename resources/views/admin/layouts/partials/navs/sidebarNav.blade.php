@@ -44,7 +44,7 @@
         <a href="{{ route('admin.what-i-do.index') }}">What I Do</a>
     </li>
     <li>
-        <a href="">Who work with</a>
+        <a href="{{ route('admin.who-i-work-with.index') }}">Who work with</a>
     </li>
     <li>
         <a href="{{ route('admin.personal-projects.index') }}">Personal Projects</a>
@@ -62,5 +62,17 @@
                 <a href="{{ route('admin.knowledgebase-categories.index') }}">Categories</a>
             </li>
         </ul>
+    </li>
+    <li class="dropdown">
+        <a href="" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Form Submissions</a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{{ route('admin.form-submissions.contact-form') }}">Contact Form</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.form-submissions.quote-form') }}">Quote Form</a>
+            </li>
+        </ul>
+
     </li>
 </ul>
