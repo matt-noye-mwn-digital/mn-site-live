@@ -44,18 +44,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <form action="{{ route('admin.settings.generalUpdate') }}" method="post">
+                            {{--<form action="{{ route('admin.settings.generalUpdate') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
                                         <label for="">App Name</label>
-                                        <input type="text" name="app_name" id="app_name" value="{{ $configurations['app_name'] }}">
+                                        <input type="text" name="app_name" id="app_name" value="{{ $configurations['site_name'] }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <label for="">App URL</label>
-                                        <input type="text" name="app_url" id="app_url" value="{{ $configurations['app_url'] }}">
+                                        <input type="text" name="app_url" id="app_url" value="{{ $configurations['site_url'] }}">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -63,7 +63,17 @@
                                         <button type="submit" class="darkPurpleBtn">Update</button>
                                     </div>
                                 </div>
-                            </form>
+                            </form>--}}
+                            <table class="table table-responsive w-100">
+                                <tbody>
+                                    @foreach($settings as $setting)
+                                        <tr>
+                                            <td><strong>{{ str_replace('_', ' ', $setting->key) }}</strong></td>
+                                            <td>{{ $setting->value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                         <div class="tab-pane fade show" id="settingsAdminUsers" role="tabpanel" >
 

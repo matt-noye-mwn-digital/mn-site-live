@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class AdminSettingsController extends Controller
 {
@@ -16,8 +18,12 @@ class AdminSettingsController extends Controller
         $configurations = Setting::pluck('key', 'value')->toArray();
         $configurations['site_name'] = $configurations['site_name'] ?? config('app.name');
         $configurations['site_url'] = $configurations['site_url'] ?? config('app.url');
+        $settings = Setting::all();
+        $adminUser = User::whereHas('roles', function ($query) {
+            $query->whereIn('name', ['super admin', 'admin']);
+        })->get();
 
-        return view('admin.pages.settings.index', compact('configurations'));
+        return view('admin.pages.settings.index', compact('configurations', 'settings', 'adminUser'));
     }
 
     /**
@@ -25,7 +31,7 @@ class AdminSettingsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.settings.create');
     }
 
     /**
@@ -33,7 +39,11 @@ class AdminSettingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Setting::create([
+            'key' => str_replace(' ', '_', strtolower($request->input('key'))),
+            'value' => $request->input('value')
+        ]);
+        return redirect('admin/settings')->with('success', 'New setting created successfully');
     }
 
     /**

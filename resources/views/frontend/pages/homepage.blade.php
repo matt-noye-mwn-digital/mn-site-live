@@ -171,9 +171,31 @@
 
     <section id="homepageWorkWithBanner">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <div class="row">
+                        @foreach($www as $www)
+                            <div class="col-md-6">
+                                <div class="wwwItem">
+                                    <a href="{{ route('who-work-with.show', ['slug' => $www->slug]) }}">
+                                        <img class="img-fluid" src="{{ Storage::url($www->featured_image) }}">
+                                        <div class="content">
+                                            <h4>{{ $www->title }} <i class="fa-solid fa-arrow-right-long"></i></h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-md-5">
                     <h3 class="sectionTitle">Who I work with</h3>
+                    <div class="topContent">
+                        <p>
+                            soem content here
+                        </p>
+                    </div>
+                    <a href="{{ route('get-a-quote.index') }}" class="darkPurpleBtn btn-lg" title="Who Work With get quote button">Get a Quote <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
         </div>

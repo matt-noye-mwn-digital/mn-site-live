@@ -13,12 +13,14 @@ class AdminContactFormSubmissionEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $formSubmission;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($formSubmission)
     {
-        //
+        $this->formSubmission = $formSubmission;
     }
 
     /**
@@ -27,7 +29,8 @@ class AdminContactFormSubmissionEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Admin Contact Form Submission Email',
+            to: 'hello@matt-noye.co.uk',
+            subject: 'You have a new contact form submission',
         );
     }
 
@@ -37,7 +40,7 @@ class AdminContactFormSubmissionEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.Admin.contactFormSubmission',
         );
     }
 

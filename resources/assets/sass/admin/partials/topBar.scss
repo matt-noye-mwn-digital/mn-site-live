@@ -34,6 +34,97 @@
                     outline: none;
                     text-decoration: none;
                 }
+
+
+            }
+            &.notificationDropdownWrap {
+                .notificationButton {
+                    position: relative;
+
+                    span.notifAmount {
+                        align-items: center;
+                        background-color: $lightPurple;
+                        border: 0;
+                        border-radius: 50%;
+                        color: $white;
+                        display: flex;
+                        flex-direction: column;
+                        font-size: .8rem;
+                        justify-content: center;
+                        padding: 2px 8px;
+                        position: absolute;
+                        right: 5px;
+                        top: -15px;
+                    }
+                }
+                ul {
+                    max-height: 400px;
+                    overflow-y: auto;
+                    padding: 0;
+                    li.notificationItemInner {
+                        border-bottom: 1px solid $mediumGrey;
+                        padding: 1rem;
+                        position: relative;
+
+                        h5 {
+                            color: $darkPurple;
+                            font-family: $roboBold;
+                            font-size: 1.25rem;
+                        }
+                        p {
+                            color: $darkPurple;
+                            font-family: $montsLight;
+                            font-size: .9rem;
+                        }
+
+
+                        button.mark-as-read {
+                            color: $darkPurple;
+                            font-family: $montsReg;
+                            font-size: .75em;
+                            position: absolute;
+                            right: 1rem;
+                            top: 1rem;
+                            @include transition(all .4s ease-in-out);
+
+                            &:hover {
+                                background-color: transparent;
+                                border: 0;
+                                box-shadow: none;
+                                color: $lightPurple;
+                                outline: none;
+                                text-decoration: none;
+                            }
+
+                        }
+                        &:hover {
+                            background-color: transparent;
+                        }
+                    }
+                    li {
+                        padding: 0;
+                        a.viewAllNotifsBtn {
+                            background-color: $darkPurple;
+                            color: $white;
+                            display: block;
+                            font-family: $roboMedium;
+                            font-size: 1rem;
+                            padding: .5rem 1rem;
+                            text-align: center;
+                            @include transition(all .4s ease-in-out);
+                            width: 100%;
+
+                            &:hover {
+                                background-color: $lightPurple;
+                                border: none;
+                                box-shadow: none;
+                                color: $white;
+                                outline: none;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
             }
             button {
                 background-color: transparent;

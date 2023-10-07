@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Frontend\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Admin\AdminContactFormSubmissionEmail;
 use App\Models\ContactFormSubmissions;
+use App\Notifications\ContactFormSubmissionNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Spatie\Permission\Models\Role;
 
 class FrontendContactPageController extends Controller
 {
@@ -51,8 +55,16 @@ class FrontendContactPageController extends Controller
             'reason_for_contacting' => $validated['reason_for_contacting'],
             'how_did_you_hear_about_me' => $validated['how_did_you_hear_about_me'],
             'your_message' => $validated['your_message'],
-
         ]);
+
+        $adminRoles = ['admin', 'super admin'];
+        $adminUsers = Role::whereIn('name', $adminRoles)->first()->users;
+        foreach($adminUsers as $adminUser) {
+            $adminUser->notify(new ContactFormSubmissionNotification($formSubmission));
+        }
+
+        Mail::to('reservations@mashtun-aberlour.com')->send(new AdminContactFormSubmissionEmail($formSubmission));
+
 
         return redirect()->back()->with('success', 'Your message has been sent successfully');
     }

@@ -346,6 +346,74 @@
 #homepageWorkWithBanner {
     background-color: $white;
     padding: 4rem 0 0 0;
+
+    .topContent {
+        margin-bottom: 50px;
+        p {
+            color: $darkPurple;
+            font-family: $montsReg;
+            font-size: 1.1rem;
+        }
+    }
+
+    .wwwItem {
+        border-radius: 20px;
+        height: 250px;
+        margin-bottom: 30px;
+        overflow: hidden;
+        position: relative;
+
+        a {
+            text-decoration: none;
+            @include transition(all .4s ease-in-out);
+            img {
+                display: block;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                @include transition(all .4s ease-in-out);
+                width: 100%;
+            }
+            .content {
+                align-items: center;
+                background-color: rgba(41, 17, 80, .65);
+                display: flex;
+                flex-direction: column;;
+                height: 100%;
+                justify-content: center;
+                position: absolute;
+                text-align: center;
+                top: 0;
+                @include transition(all .4s ease-in-out);
+                width: 100%;
+
+                h4 {
+                    color: $white;
+                    font-family: $roboMedium;
+                    font-size: 1.75rem;
+                    .fa-arrow-right-long {
+                        font-size: 0;
+                        margin-left: 5px;
+                        @include transition(all .4s ease-in-out);
+                    }
+                }
+
+            }
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+                .content {
+                    h4 {
+                        .fa-arrow-right-long {
+                            font-size: 1.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 #homepageLatestPostsBanner {

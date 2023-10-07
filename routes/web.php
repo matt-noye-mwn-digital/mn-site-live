@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminPortfolioController;
 use App\Http\Controllers\Admin\AdminPostCategoryController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminPostTagsController;
+use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Admin\AdminWhatIDoController;
 use App\Http\Controllers\Admin\AdminWhoWorkWithController;
 use App\Http\Controllers\Admin\Pages\AdminHomepageController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Frontend\Pages\FrontendContactPageController;
 use App\Http\Controllers\Frontend\Pages\FrontendGetQuoteController;
 use App\Http\Controllers\Frontend\Pages\FrontendHomepageController;
 use App\Http\Controllers\Frontend\Pages\FrontendKnowledgebaseController;
+use App\Http\Controllers\Frontend\Pages\FrontendWhoWorkWithController;
 use App\Http\Controllers\Frontend\Pages\ResourcePageController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -76,7 +78,10 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 
     //Settings
     Route::prefix('settings')->group(function(){
-
+        Route::get('/', [AdminSettingsController::class, 'index'])->name('settings.index');
+        Route::get('general-settings-create', [AdminSettingsController::class, 'create'])->name('settings.generalSettingsCreate');
+        Route::post('general-settings-update', [AdminSettingsController::class, 'update'])->name('settings.generalUpdate');
+        Route::post('general-settings-store', [AdminSettingsController::class, 'store'])->name('settings.generalSettingStore');
     });
     //Main Settings resource route here
 
@@ -91,34 +96,45 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 
 //Frontend Routes
 Route::get('/', [FrontendHomepageController::class, 'index'])->name('homepage.index');
+//About me
 Route::get('/about-me', [FrontendAboutPageController::class, 'index'])->name('about-me');
 Route::prefix('portfolio')->group(function () {
     Route::get('/', [FrontendPortfolioController::class, 'index'])->name('portfolio.index');
     Route::get('{slug}', [FrontendPortfolioController::class, 'show'])->name('portfolio.show');
 });
+//Resources
 Route::prefix('resources')->group(function(){
     Route::get('/', [ResourcePageController::class, 'index'])->name('resources.index');
     Route::get('{slug}', [ResourcePageController::class, 'showSingleCategory'])->name('category.show');
     Route::get('{category}/{slug}', [ResourcePageController::class, 'showSinglePost'])->name('posts.show');
 });
+//What i do
 Route::prefix('what-i-do')->group(function(){
     Route::get('/', [FrontendWhatIDoController::class, 'index']);
     Route::get('{slug}', [FrontendWhatIDoController::class, 'show'])->name('what-i-do.show');
 });
+//Knowledge base
 Route::prefix('knowledgebase')->group(function(){
     Route::get('search', [FrontendKNowledgebaseController::class, 'search'])->name('knowledgebase.search');
     Route::get('/', [FrontendKnowledgebaseController::class, 'index'])->name('knowledgebase.index');
     Route::get('{slug}', [FrontendKNowledgebaseController::class, 'categoryShow'])->name('knowledgebase.categoryShow');
     Route::get('{category}/{slug}', [FrontendKnowledgebaseController::class, 'show'])->name('knowledgebase.show');
 });
+//Contact Me
 Route::prefix('contact-me')->group(function(){
    Route::get('/', [FrontendContactPageController::class, 'index'])->name('contact-me.index');
    Route::post('/store', [FrontendContactPageController::class, 'store'])->name('contact-me.store');
 });
+//Get Quote
 Route::prefix('get-a-quote')->group(function(){
    Route::get('/', [FrontendGetQuoteController::class, 'index'])->name('get-a-quote.index');
    Route::post('/store', [FrontendGetQuoteController::class, 'store'])->name('get-a-quote.store');
 });
+Route::prefix('who-i-work-with')->group(function(){
+    Route::get('/', [FrontendWhoWorkWithController::class, 'index'])->name('who-work-with.index');
+    Route::get('{slug}', [FrontendWhoWorkWithController::class, 'show'])->name('who-work-with.show');
+});
+
 
 //Sitemap route do not touch
 Route::get('generate-sitemap', function () {
