@@ -15,7 +15,7 @@
                 <div class="col-md-9">
                     <h1>All Pages</h1>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 d-flex justify-content-end">
                     <a href="{{ route('admin.pages.create') }}" class="darkPurpleBtn">
                         Create new page <i class="fas fa-plus"></i>
                     </a>
@@ -33,144 +33,47 @@
                             <th>Page Name</th>
                             <th>Slug</th>
                             <th>Status</th>
+                            <th>Created</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Homepage</td>
-                                <td>/</td>
-                                <td>Published</td>
-                                <td>
-                                    <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a href="">View</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('admin.homepage.edit', ['homepage' => 1]) }}">Edit</a>
-                                        </li>
-                                        <li>
-                                            <form action="" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Resources</td>
-                                <td>/resources</td>
-                                <td>Published</td>
-                                <td>
-                                    <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a href="">View</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Edit</a>
-                                        </li>
-                                        {{--<li>
-                                            <form action="" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
-                                            </form>
-                                        </li>--}}
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Portfolio</td>
-                                <td>/portfolio</td>
-                                <td>Published</td>
-                                <td>
-                                    <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a href="">View</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Edit</a>
-                                        </li>
-                                        {{--<li>
-                                            <form action="" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
-                                            </form>
-                                        </li>--}}
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Knowledgebase</td>
-                                <td>/knowledgebase</td>
-                                <td>Published</td>
-                                <td>
-                                    <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a href="">View</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Edit</a>
-                                        </li>
-                                        {{--<li>
-                                            <form action="" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
-                                            </form>
-                                        </li>--}}
-                                    </ul>
-                                </td>
-                            </tr>
-                        {{--@foreach($posts as $post)
-                            <tr>
-                                <td>{{ $post->title }}</td>
-                                <td>{{ $post->slug }}</td>
-                                <td>{{ $post->category->name }}</td>
-                                <td>
-                                    @if($post->published == 0)
-                                        Draft
-                                    @else
-                                        Published
-                                    @endif
-                                </td>
-                                <td>
-                                    <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a href="">View</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>
-                                        </li>
-                                        <li>
-                                            <form action="" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        @endforeach--}}
+                            @foreach($pages as $page)
+                                <tr>
+                                    <td>{{ $page->page_title }}</td>
+                                    <td>{{ $page->page_slug }}</td>
+                                    <td>
+                                        @if($page->published == true)
+                                            <div class="text-success" >Published</div>
+                                        @else
+                                            <div class="text-secondary">Draft</div>
+                                        @endif
+                                    </td>
+                                    <td>{{ date('d/m/Y H:i', strtotime($page->created_at)) }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li>
+                                                    <a href="">View</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('admin.pages.edit', $page->id) }}">Edit</a>
+                                                </li>
+                                                <li>
+                                                    <form action="" method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

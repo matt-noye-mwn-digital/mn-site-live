@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormRequests\PersonalProjectsStoreRequest;
+use App\Models\PagePostSeo;
 use App\Models\PersonalProjects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AdminPersonalProjectsController extends Controller
 {
@@ -33,7 +35,9 @@ class AdminPersonalProjectsController extends Controller
     public function store(PersonalProjectsStoreRequest $request)
     {
         $featuredImage = NULL;
+        $featuredImagePath = NULL;
         $responsiveImage = NULL;
+        $responsiveImagePath = NULL;
 
         if($request->hasFile('featured_image')) {
             $featuredImage = $request->file('featured_image');
@@ -49,16 +53,26 @@ class AdminPersonalProjectsController extends Controller
 
             $responsiveImagePath = $responsiveImage->storeAs($folder, $fileName);
         }
-        $servicesUsed = implod(',', $request->services_used);
+        $servicesUsed = implode(',', $request->services_used);
 
-        PersonalProjects::create([
+        $personalProject = PersonalProjects::create([
             'name' => $request->name,
+            'slug' => Str::slug($request->name),
             'tagline' => $request->tagline,
             'featured_image' => $featuredImagePath,
             'services_used' => $servicesUsed,
             'the_brief' => $request->the_brief,
             'project_link' => $request->project_link,
             'responsive_image' => $responsiveImagePath,
+        ]);
+
+        PagePostSeo::create([
+            'seo_title' => $request->input('seo_title'),
+            'seo_description' => $request->input('seo_description'),
+            'seo_canonical_url' => $request->input('seo_canonical_url'),
+            'seo_property_type' => $request->input('seo_property_type'),
+            'seo_keywords' => $request->input('seo_keywords'),
+            'per_project_id' => $personalProject->id,
         ]);
 
         return redirect('admin/personal-projects')->with('success', 'New personal project created successfully');
@@ -69,7 +83,9 @@ class AdminPersonalProjectsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $personalProject = PersonalProjects::findOrFail($id);
+
+        return view('admin.pages.personal-projects.show', compact($personalProject));
     }
 
     /**
@@ -85,8 +101,9 @@ class AdminPersonalProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PersonalProjectsStoreRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
+        $personalProject = PersonalProjects::findOrFail($id);
         $featuredImage = NULL;
         $responsiveImage = NULL;
 
@@ -97,6 +114,9 @@ class AdminPersonalProjectsController extends Controller
 
             $featuredImagePath = $featuredImage->storeAs($folder, $fileName);
         }
+        else{
+            $featuredImagePath = $personalProject->featured_image;
+        }
         if($request->hasFile('responsive_image')){
             $responsiveImage = $request->file('responsive_image');
             $fileName = time().'_'.$responsiveImage->getClientOriginalName();
@@ -104,16 +124,27 @@ class AdminPersonalProjectsController extends Controller
 
             $responsiveImagePath = $responsiveImage->storeAs($folder, $fileName);
         }
-        $servicesUsed = implod(',', $request->services_used);
+        else{
+            $responsiveImagePath = $personalProject->responsive_image;
+        }
+        $servicesUsed = implode(',', $request->services_used);
 
-        PersonalProjects::update([
-            'name' => $request->name,
-            'tagline' => $request->tagline,
+        $personalProject->update([
+            'name' => $request->input('name'),
+            'tagline' => $request->input('tagline'),
             'featured_image' => $featuredImagePath,
             'services_used' => $servicesUsed,
-            'the_brief' => $request->the_brief,
-            'project_link' => $request->project_link,
+            'the_brief' => $request->input('the_brief'),
+            'project_link' => $request->input('project_link'),
             'responsive_image' => $responsiveImagePath,
+        ]);
+
+        $pagePostSeo->update([
+            'seo_title' => $request->input('seo_title'),
+            'seo_description' => $request->input('seo_description'),
+            'seo_canonical_url' => $request->input('seo_canonical_url'),
+            'seo_property_type' => $request->input('seo_property_type'),
+            'seo_keywords' => $request->input('seo_keywords'),
         ]);
 
         return redirect('admin/personal-projects')->with('success', 'Personal Project updated successfully');

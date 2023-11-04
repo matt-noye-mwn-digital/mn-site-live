@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormRequests\PostStoreRequest;
+use App\Models\PagePostSeo;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\PostTags;
@@ -29,8 +30,7 @@ class AdminPostController extends Controller
     public function create()
     {
         $category = PostCategory::all();
-        $tags = PostTags::all();
-        return view('admin.pages.posts.create', compact('category', 'tags'));
+        return view('admin.pages.posts.create', compact('category', ));
     }
 
     /**
@@ -56,25 +56,27 @@ class AdminPostController extends Controller
         $excerptWords = array_slice($words, 0, 50);
         $excerpt = implode(' ', $excerptWords);
 
-        $selectedTagIds = $request->tag;
-
-        $tagIds = $selectedTagIds ? array_map('intval', $selectedTagIds) : null;
-        $tagIdsJson = $tagIds ? json_encode($tagIds) : null;
-
-
-        Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'featured_image' => $featuredImagePath,
             'main_content' => $request->main_content,
             'excerpt' => $excerpt,
-            'page_description' => $request->page_description,
-            'page_keywords' => $request->page_keywords,
             'category_id' => $request->category_id,
-            'tags' => $tagIdsJson,
             'user_id' => Auth::user()->id,
             'published' => $request->published,
         ]);
+
+        PagePostSeo::create([
+            'seo_title' => $request->input('seo_title'),
+            'seo_description' => $request->input('seo_description'),
+            'seo_canonical_url' => $request->input('seo_canonical_url'),
+            'seo_property_type' => $request->input('seo_property_type'),
+            'seo_keywords' => $request->input('seo_keywords'),
+
+            'post_id' => $post->id
+        ]);
+
 
         return redirect('admin/posts')->with('success', 'New post has been published successfully');
     }
@@ -94,9 +96,8 @@ class AdminPostController extends Controller
     {
         $post = Post::findOrFail($id);
         $category = PostCategory::all();
-        $tags = PostTags::all();
 
-        return view('admin.pages.posts.edit', compact('post', 'category', 'tags'));
+        return view('admin.pages.posts.edit', compact('post', 'category'));
     }
 
     /**

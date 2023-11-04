@@ -33,11 +33,7 @@
     </head>
     <body>
     <main>
-
         @yield('content')
-
-
-
     </main>
     <footer>
         <div class="footerBottom">

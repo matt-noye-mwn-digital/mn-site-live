@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             WhatIDoSeeder::class,
             PostCategoriesSeeder::class,
-            PostTagSeeder::class,
             KnowledgebaseCategorySeeder::class,
             SettingSeeder::class,
+            WhoWorkWithSeeder::class,
         ]);
     }
 }

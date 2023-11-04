@@ -1,4 +1,7 @@
 @extends('frontend.layouts.main')
+@push('seo-stuff')
+
+@endpush
 @push('page-title')
 
 @endpush
@@ -35,7 +38,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h1>Hi, I'm <span>Matt Noye</span></h1>
-                        <p>I create <span id="homepageTypeWriter"></span></p>
+                        <h2>I create <span id="homepageTypeWriter"></span></h2>
                         <div class="btn-group">
                             <a href="" class="mediumPurpleBtn btn-lg" title="view my work button">View my work <i class="fa-solid fa-arrow-right-long"></i></a>
                             <a href="" class="whiteBgPurpleTxtBtn btn-lg" title="get in touch button">Get in touch <i class="fa-solid fa-arrow-right-long"></i></a>
@@ -78,22 +81,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
-                    <button type="button" class="mediumPurpleBtn " data-bs-toggle="collapse" data-bs-target="#homepageAboutMeCollapse" aria-expanded="false" title="about me collapse button">
-                        Read More <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="collapse" id="homepageAboutMeCollapse">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h4 class="sectionTitleSmall">My Skills</h4>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4 class="sectionTitleSmall">The tools I use</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-6 offset-md-3 aboutButtonRow">
+                    <a href="" class="whiteBgPurpleTxtBtn btn-lg" title="view my work button">Read more <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
         </div>
@@ -192,10 +181,14 @@
                     <h3 class="sectionTitle">Who I work with</h3>
                     <div class="topContent">
                         <p>
-                            soem content here
+                            Over the years I have had the priveledge to work with some amazing clients across a range of sectors throughout the UK, Europe, North America and Canada.  To the left are just a handful of the sectors I work with and have worked with over the years.
                         </p>
                     </div>
-                    <a href="{{ route('get-a-quote.index') }}" class="darkPurpleBtn btn-lg" title="Who Work With get quote button">Get a Quote <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <div class="btn-group">
+                        <a href="{{ route('get-a-quote.index') }}" class="darkPurpleBtn btn-lg" title="Who Work With get quote button">Get a Quote <i class="fa-solid fa-arrow-right-long"></i></a>
+                        <a href="" class="darkPurpleBtn btn-lg">Let's Chat <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
                 </div>
             </div>
         </div>

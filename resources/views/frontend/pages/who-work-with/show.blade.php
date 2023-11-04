@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @push('page-title')
-
+    {{ $www->title }} - Who I Work With
 @endpush
 @push('page-description')
 
@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="{{ config('configurations.app_url', config('app.url')) }}/resources" class="backAll"><i class="fas fa-chevron-left"></i> Back to all Who I Work With</a>
+                        <a href="{{ config('configurations.app_url', config('app.url')) }}/who-i-work-with" class="backAll"><i class="fas fa-chevron-left"></i> Back to all Who I Work With</a>
                         <h1>{{ $www->title }}</h1>
                         {!! $www->sub_title !!}
                     </div>

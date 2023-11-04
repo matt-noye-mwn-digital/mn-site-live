@@ -66,7 +66,7 @@
                             </ul>
                         </div>
                         <div class="col-md-3">
-                            <h5 class="footerTitle">Service Areas</h5>
+                            <h5 class="footerTitle">Latest Posts</h5>
                         </div>
                     </div>
                 </div>

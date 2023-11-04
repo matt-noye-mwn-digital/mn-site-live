@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminFormSubmissionController;
 use App\Http\Controllers\Admin\AdminKnowledgebaseCategoryController;
 use App\Http\Controllers\Admin\AdminKnowledgebaseController;
+use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\AdminPagesController;
 use App\Http\Controllers\Admin\AdminPersonalProjectsController;
 use App\Http\Controllers\Admin\AdminPortfolioController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Admin\AdminWhatIDoController;
 use App\Http\Controllers\Admin\AdminWhoWorkWithController;
 use App\Http\Controllers\Admin\Pages\AdminHomepageController;
 use App\Http\Controllers\Admin\Pages\AdminKnowledgebaseMainPageController;
+use App\Http\Controllers\Admin\Pages\AdminWhoWorkWithPageContentController;
 use App\Http\Controllers\Frontend\FrontendPortfolioController;
 use App\Http\Controllers\Frontend\FrontendWhatIDoController;
 use App\Http\Controllers\Frontend\Pages\FrontendAboutPageController;
@@ -58,10 +60,15 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 
     //Pages
     Route::prefix('pages')->group(function(){
+        Route::get('/', [AdminPageController::class, 'index'])->name('pages.index');
+        Route::get('create-page', [AdminPageController::class, 'create'])->name('pages.create');
+        Route::post('store-page', [AdminPageController::class, 'store'])->name('pages.store');
+        Route::get('/edit-page/{id}', [AdminPageController::class, 'edit'])->name('pages.edit');
+        Route::put('/update-page/{id}', [AdminPageController::class, 'update'])->name('pages.update');
         Route::resource('homepage', AdminHomepageController::class);
         Route::resource('knowledgebase', AdminKnowledgebaseMainPageController::class);
+        Route::resource('who-work-with-page', AdminWhoWorkWithPageContentController::class);
     });
-    Route::resource('pages', AdminPagesController::class);
 
     //Personal Projects
     Route::resource('personal-projects', AdminpersonalProjectsController::class);

@@ -21,4 +21,8 @@ class PersonalProjects extends Model
         'responsive_image',
         'slug'
     ];
+
+    public function seo(){
+        return $this->hasOne(PagePostSeo::class, 'per_project_id');
+    }
 }

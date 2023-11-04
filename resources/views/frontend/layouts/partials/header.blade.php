@@ -10,26 +10,14 @@
         <title>@stack('page-title') - {{ config('settings.site_name', config('Laravel')) }}</title>
 
         <!-- Meta -->
-        <meta name="description" content="@stack('page-description')">
-        <meta name="keywords" content="@stack('page-keywords')">
+        {!! SEO::generate() !!}
 
-        <link rel="canonical" href="{{ config('configurations.app_url', config('app.url')) }}/@stack('page-slug')">
-
-        <!-- Open Graph Stuff -->
-        <meta property="og:title" content="@stack('page-title')">
-        <meta property="og:description" content="@stack('page-description')">
-        <meta property="og:url" content="{{ config('configurations.app_url', config('app.url')) }}/@stack('page-slug')">
-        <meta property="og:type" content="@stack('page-type')">
-        <meta property="og:site_name" content="{{ config('configurations.app_name', config('app.name')) }}">
-        <meta property="og:locale" content="en_GB">
-
-
+        <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
         <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-        <!-- Scripts -->
         @vite(['resources/assets/sass/app.scss', 'resources/assets/sass/frontend.scss', 'resources/assets/js/app.js', 'resources/assets/js/frontend.js'])
 
         @stack('page-scripts')

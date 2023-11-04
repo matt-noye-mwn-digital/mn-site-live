@@ -35,7 +35,7 @@
 
     {{ Breadcrumbs::render() }}
 
-    <section class="getQuotePageMain">
+    <section class="getQuotePageMain" id="getQuotePageMain">
         <div class="container">
             <div class="row">
                 <div class="col-12">

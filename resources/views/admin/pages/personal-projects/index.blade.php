@@ -51,7 +51,7 @@
                                                 <a href="">View</a>
                                             </li>
                                             <li>
-                                                <a href="">Edit</a>
+                                                <a href="{{ route('admin.personal-projects.edit', $pp->id) }}">Edit</a>
                                             </li>
                                             <li>
                                                 <form action="" method="post">

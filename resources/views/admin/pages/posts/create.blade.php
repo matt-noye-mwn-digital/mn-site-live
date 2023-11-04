@@ -70,10 +70,46 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-12 mt-5">
+                                        <hr>
+                                        <h2 class="pageFormSecTitle">
+                                            SEO
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-12">
-                                        <label for="">Page Description</label>
-                                        <textarea name="page_description" id="page_description" cols="30" rows="10">{{ old('page_description') }}</textarea>
-                                        @error('page_description')
+                                        <label for="">SEO Title</label>
+                                        <input type="text" name="seo_title" id="seo_title" value="{{ old('seo_title') }}">
+                                        <x.form-errors fieldName="seo_title"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Canonical URL</label>
+                                        <input type="text" name="seo_canonical_url" id="seo_canonical_url">
+                                        <x.form-errors fieldName="seo_canonical_url"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Property Type</label>
+                                        <select name="seo_property_type" id="seo_property_type">
+
+                                        </select>
+                                        <x.form-errors fieldName="seo_property_type"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="">SEO Description</label>
+                                        <textarea name="seo_description" id="seo_description" cols="30" rows="10">{{ old('seo_description') }}</textarea>
+                                        <x.form-errors fieldName="seo_description"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="">SEO Keywords</label>
+                                        <input type="text" name="seo_keyword" id="seo_keyword" value="{{ old('seo_keyword') }}">
+                                        @error('seo_keyword')
                                         <div class="text-danger">
                                             {{ $message }}
                                         </div>
@@ -82,13 +118,24 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <label for="">Page Keywords</label>
-                                        <textarea name="page_keywords" id="page_keywords" cols="30" rows="10">{{ old('page_keywords') }}</textarea>
-                                        @error('page_keywords')
+                                        <label for="">SEO Image</label>
+                                        <input type="file" name="seo_image" id="seo_image">
+                                        @error('seo_image')
                                         <div class="text-danger">
                                             {{ $message }}
                                         </div>
                                         @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="">Property Type</label>
+                                        <select name="seo_property_type" id="seo_property_type">
+                                            <option value="website" selected>Website</option>
+                                            <option value="article">Article</option>
+                                            <option value="place">Place</option>
+                                            <option value="product">Product</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -107,18 +154,6 @@
                                             {{ $message }}
                                         </div>
                                         @enderror
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="">Tags</label>
-                                        <div class="tagsWrapper">
-                                            @foreach($tags as $tag)
-                                                <label for="">
-                                                    <input type="checkbox" name="tag[]" id="{{ $tag->name }}" value="{{ $tag->id }}"> {{ $tag->name }}
-                                                </label>
-                                            @endforeach
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">

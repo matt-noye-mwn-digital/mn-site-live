@@ -24,7 +24,7 @@
                     <a href="{{ route('contact-me.index') }}" title="navbar contact me button">Contact Me</a>
                 </li>
                 <li>
-                    <a class="getQuoteHeaderButton" href="{{ route('get-a-quote.index') }}" title="Get a quote header button">Get a Quote <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a class="getQuoteHeaderButton" href="{{ route('get-a-quote.index') }}/#getQuotePageMain" title="Get a quote header button">Get a Quote <i class="fa-solid fa-arrow-right-long"></i></a>
                 </li>
             </ul>
         </div>

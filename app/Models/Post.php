@@ -35,8 +35,7 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class, 'category_id', 'id');
     }
-
-    public function tags(){
-        return $this->belongsToMany(PostTags::class);
+    public function seo(){
+        return $this->hasOne(PagePostSeo::class);
     }
 }

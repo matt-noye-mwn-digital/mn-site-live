@@ -19,16 +19,14 @@ return new class extends Migration
             $table->text('main_content');
             $table->text('excerpt');
             $table->boolean('published')->default(0);
-            $table->string('page_type')->default('article')->nullable();
-            $table->text('page_description')->nullable();
-            $table->text('page_keywords')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
-            $table->json('tags')->nullable;
+            $table->unsignedBigInteger('reassigned_category_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('post_categories')->onDelete('cascade');
+            $table->foreign('reassigned_category_id')->references('id')->on('post_categories');
         });
     }
 

@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('temporary_files', function (Blueprint $table) {
-            $table->id();
-            $table->string('folder');
-            $table->string('file');
-            $table->timestamps();
+        Schema::table('who_work_withs', function (Blueprint $table) {
+            $table->string('seo_keywords')->nullable()->after('seo_description');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('temporary_files');
+        Schema::table('who_work_withs', function (Blueprint $table) {
+            //
+        });
     }
 };

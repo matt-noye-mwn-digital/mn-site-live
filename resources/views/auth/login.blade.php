@@ -1,6 +1,11 @@
 @extends('layouts.login')
 
 @section('content')
+    <style>
+        footer {
+            display: none;
+        }
+    </style>
     <section class="loginPageMain" style="background-image: url('{{ asset('images/backgrounds/purple-blocks-bg-1.png') }}'); background-attachment: scroll; background-position: top center; background-repeat: no-repeat; background-size: cover;">
         <div class="container">
             <div class="row">

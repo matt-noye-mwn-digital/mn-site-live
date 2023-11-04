@@ -30,39 +30,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('admin.personal-projects.store') }}" method="post">
+                    <form action="{{ route('admin.personal-projects.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-12">
                                 <label for="">Name *</label>
                                 <input type="text" name="name" id="name" value="{{ old('name')  }}" required>
-                                @error('name')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x.form-errors fieldName="name"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <label for="">Tagline</label>
                                 <input type="text" name="tagline" id="tagline" value="{{ old('tagline') }}">
-                                @error('tagline')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x.form-errors fieldName="tagline"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <label for="">Featured Image Upload *</label>
                                 <input type="file" name="featured_image" id="featured_image" required>
-                                @error('featured_image')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x.form-errors fieldName="featured_image"/>
                             </div>
                         </div>
                         <div class="row">
@@ -85,46 +73,87 @@
                                         <input type="checkbox" name="services_used[]" id="" value="hubspot_cms"> HubSpot CMS
                                     </label>
                                 </div>
-                                @error('services_used')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x.form-errors fieldName="services_used"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <label for="">The Brief</label>
                                 <textarea name="the_brief" id="the_brief" cols="30" rows="10" class="tinyEditor">{{ old('the_brief') }}</textarea>
-                                @error('the_brief')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x.form-errors fieldName="the_brief"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <label for="">Project Link</label>
                                 <input type="text" name="project_link" id="project_link" value='{{ old('project_link') }}'>
-                                @error('project_link')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x.form-errors fieldName="project_link"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <label for="">Responsive Image</label>
                                 <input type="file" name="responsive_image" id="responsive_image">
-                                @error('responsive_image')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x.form-errors fieldName="responsive_image"/>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-12 mt-5">
+                                <hr>
+                                <h2 class="pageFormSecTitle">
+                                    SEO
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Title</label>
+                                <input type="text" name="seo_title" id="seo_title" value="{{ old('seo_title') }}">
+                                <x.form-errors fieldName="seo_title"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">Canonical URL</label>
+                                <input type="text" name="seo_canonical_url" id="seo_canonical_url">
+                                <x.form-errors fieldName="seo_canonical_url"/>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Property Type</label>
+                                <select name="seo_property_type" id="seo_property_type">
+                                    <option value="website" selected>Website</option>
+                                    <option value="article">Article</option>
+                                    <option value="place">Place</option>
+                                    <option value="product">Product</option>
+                                </select>
+                                <x.form-errors fieldName="seo_property_type"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Description</label>
+                                <textarea name="seo_description" id="seo_description" cols="30" rows="10">{{ old('seo_description') }}</textarea>
+                                <x.form-errors fieldName="seo_description"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Keywords</label>
+                                <input type="text" name="seo_keyword" id="seo_keyword" value="{{ old('seo_keyword') }}">
+                                <x.form-errors fieldName="seo_keywords"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Image</label>
+                                <input type="file" name="seo_image" id="seo_image">
+                                <x.form-errors fieldName="seo_image"/>
+                            </div>
+                        </div>
+
+
+
                         <div class="row">
                             <div class="col-12 d-flex justify-content-end">
                                 <button type="submit" class="darkPurpleBtn">Save</button>
