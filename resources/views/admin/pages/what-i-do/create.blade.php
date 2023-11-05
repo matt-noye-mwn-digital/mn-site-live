@@ -74,6 +74,59 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-12 mt-5">
+                                <hr>
+                                <h2 class="pageFormSecTitle">
+                                    SEO
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Title</label>
+                                <input type="text" name="seo_title" id="seo_title" value="{{ old('seo_title') }}">
+                                <x.form-errors fieldName="seo_title"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">Canonical URL</label>
+                                <input type="text" name="seo_canonical_url" id="seo_canonical_url">
+                                <x.form-errors fieldName="seo_canonical_url"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Description</label>
+                                <textarea name="seo_description" id="seo_description" cols="30" rows="10">{{ old('seo_description') }}</textarea>
+                                <x.form-errors fieldName="seo_description"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Keywords</label>
+                                <input type="text" name="seo_keywords" id="seo_keywords" value="{{ old('seo_keyword') }}">
+                                @error('seo_keyword')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Image</label>
+                                <input type="file" name="seo_image" id="seo_image">
+                                @error('seo_image')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="row">
                             <div class="col-12 d-flex justify-content-end">
                                 <button type="submit" class="darkPurpleBtn">
                                     Save

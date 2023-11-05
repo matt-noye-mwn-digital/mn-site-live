@@ -60,7 +60,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="">Featured Image *</label>
-                                <input type="file" name="featured_image" id="featured_image" required>
+                                <input type="file" name="featured_image" id="featured_image">
                                 @error('featured_image')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -82,6 +82,68 @@
                                 <textarea name="main_content" id="main_content" cols="30" rows="10" class="tinyEditor">{{ old('main_content', $wid->main_content) }}</textarea>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12 mt-5">
+                                <hr>
+                                <h2 class="pageFormSecTitle">
+                                    SEO
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Title</label>
+                                <input type="text" name="seo_title" id="seo_title" value="{{ old('seo_title', $wid->seo->seo_title) }}">
+                                <x.form-errors fieldName="seo_title"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">Canonical URL</label>
+                                <input type="text" name="seo_canonical_url" id="seo_canonical_url" value="{{ old('seo_canonical_url', $wid->seo->seo_canonical_url) }}">
+                                <x.form-errors fieldName="seo_canonical_url"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Description</label>
+                                <textarea name="seo_description" id="seo_description" cols="30" rows="10">{{ old('seo_description', $wid->seo->seo_description) }}</textarea>
+                                <x.form-errors fieldName="seo_description"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">SEO Keywords</label>
+                                <input type="text" name="seo_keywords" id="seo_keywords" value="{{ old('seo_keyword', $wid->seo->seo_keywords) }}">
+                                @error('seo_keyword')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">SEO Image</label>
+                                <input type="file" name="seo_image" id="seo_image">
+                                @error('featured_image')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Current seo image</label>
+                                @if($wid->seo->seo_image)
+                                    <img class="img-fluid" src="{{ Storage::url($wid->seo->seo_image) }}" style="display: block; height: 150px; margin-left: 0; width: auto;">
+                                @else
+                                    No SEO image currently set
+                                @endif
+                            </div>
+                        </div>
+
+
+
                         <div class="row">
                             <div class="col-12 d-flex justify-content-end">
                                 <button type="submit" class="darkPurpleBtn">

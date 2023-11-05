@@ -21,6 +21,7 @@ class Post extends Model
         'category_id',
         'tags',
         'excerpt',
+        'published',
     ];
 
     protected $casts = [

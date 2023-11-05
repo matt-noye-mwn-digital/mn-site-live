@@ -20,13 +20,7 @@ class WhatIDo extends Model
         'seo_keywords',
         'seo_description',
     ];
-
-    /*protected static function booted() {
-        static::creating(function($whatIDo){
-            $whatIDo->slug = Str::slug($whatIDo->title);
-        });
+    public function seo(){
+        return $this->hasOne(PagePostSeo::class, 'wid_id');
     }
-    public function setSlugAttribute($value) {
-        $this->attributes['slug'] = 'what-i-do/' . Str::slug($value);
-    }*/
 }

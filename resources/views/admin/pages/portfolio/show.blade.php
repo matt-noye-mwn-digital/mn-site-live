@@ -84,6 +84,56 @@
                             </tr>
                         @endif
                         <tr>
+                            <td><strong>SEO Title</strong></td>
+                            <td>
+                                @if($portfolioItem->seo->seo_title)
+                                    {{ $portfolioItem->seo->seo_title }}
+                                @else
+                                    --
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEO Description</strong></td>
+                            <td>
+                                @if($portfolioItem->seo->seo_description)
+                                    {{ $portfolioItem->seo->seo_description }}
+                                @else
+                                    --
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEO Canonical URL</strong></td>
+                            <td>
+                                @if($portfolioItem->seo->seo_canonical_url)
+                                    {{ $portfolioItem->seo->seo_canonical_url }}
+                                @else
+                                    --
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEO Property Type</strong></td>
+                            <td>
+                                @if($portfolioItem->seo->seo_property_type)
+                                    {{ $portfolioItem->seo->seo_property_type }}
+                                @else
+                                    --
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEO Keywords</strong></td>
+                            <td>
+                                @if($portfolioItem->seo->seo_keywords)
+                                    {{ $portfolioItem->seo->seo_keywords }}
+                                @else
+                                    --
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
                             <td><strong>Created:</strong></td>
                             <td>{{ date('d/m/Y', strtotime($portfolioItem->created_at)) }}</td>
                         </tr>

@@ -51,10 +51,10 @@
                                                 <a href="{{ route('admin.who-i-work-with.show', $www->id) }}">View</a>
                                             </li>
                                             <li>
-                                                <a href="">Edit</a>
+                                                <a href="{{ route('admin.who-i-work-with.edit', $www->id) }}">Edit</a>
                                             </li>
                                             <li>
-                                                <form action="" method="POST">
+                                                <form action="{{ route('admin.who-i-work-with.destroy', $www->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>

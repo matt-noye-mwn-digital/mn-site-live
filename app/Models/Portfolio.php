@@ -23,18 +23,11 @@ class Portfolio extends Model
         'mobile_desktop_tablet_image',
         'testimonial_content',
         'tetimonial_author',
-        'seo_title',
-        'seo_keywords',
-        'seo_description',
         'slug',
     ];
 
 
-    /*// Define the custom save_slug closure
-    public function getSaveSlugClosure(): \Closure
-    {
-        return function ($attribute, $slug, $separator) {
-            return 'portfolio/' . $slug; // Prepend "portfolio/" to the slug
-        };
-    }*/
+    public function seo(){
+        return $this->hasOne(PagePostSeo::class, 'port_item_id');
+    }
 }

@@ -56,7 +56,7 @@
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end">
                                             <li>
-                                                <a href="">View</a>
+                                                <a href="{{ route('admin.posts.show', $post->id) }}">View</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>

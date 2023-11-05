@@ -20,4 +20,8 @@ class WhoWorkWith extends Model
         'seo_image',
         'seo_canonical_url',
     ];
+
+    public function seo(){
+        return $this->hasOne(PagePostSeo::class, 'www_id');
+    }
 }

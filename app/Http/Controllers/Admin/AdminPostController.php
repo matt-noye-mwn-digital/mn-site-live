@@ -10,6 +10,7 @@ use App\Models\PostCategory;
 use App\Models\PostTags;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -38,16 +39,25 @@ class AdminPostController extends Controller
      */
     public function store(PostStoreRequest $request)
     {
-        $featuredImage = NULL;
-        $slug = NULL;
-        $featuredImagePath = NULL;
-
         if($request->hasFile('featured_image')){
             $featuredImage = $request->file('featured_image');
             $fileName = time().'_'.$featuredImage->getClientOriginalName();
-            $folder = 'public/posts/uploads';
+            $folder = 'public/posts/featured_images';
 
             $featuredImagePath = $featuredImage->storeAs($folder, $fileName);
+        }
+        else {
+            $featuredImagePath = NULL;
+        }
+        if($request->hasFile('seo_image')){
+            $seoImage = $request->file('seo_image');
+            $fileName = time().'_'.$seoImage->getClientOriginalName();
+            $folder = 'public/posts/seo_images';
+
+            $seoImagePath = $seoImage->storeAs($folder, $fileName);
+        }
+        else {
+            $seoImagePath = NULL;
         }
 
         $mainContent = $request->main_content;
@@ -71,9 +81,8 @@ class AdminPostController extends Controller
             'seo_title' => $request->input('seo_title'),
             'seo_description' => $request->input('seo_description'),
             'seo_canonical_url' => $request->input('seo_canonical_url'),
-            'seo_property_type' => $request->input('seo_property_type'),
+            'seo_property_type' => 'article',
             'seo_keywords' => $request->input('seo_keywords'),
-
             'post_id' => $post->id
         ]);
 
@@ -86,7 +95,10 @@ class AdminPostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $content = Post::findOrFail($id);
+
+        return view('admin.pages.posts.show', compact('content'));
+
     }
 
     /**
@@ -106,6 +118,7 @@ class AdminPostController extends Controller
     public function update(PostStoreRequest $request, string $id)
     {
         $post = Post::findOrFail($id);
+        $pagePostSeo = PagePostSeo::where('post_id', $post->id);
 
         $oldFeaturedImage = $post->featured_image;
         $featuredImagePath = NULL;
@@ -124,6 +137,9 @@ class AdminPostController extends Controller
                 Storage::delete($oldFeaturedImage);
             }
         }
+        else {
+            $featuredImagePath == NULL;
+        }
 
         $mainContent = $request->main_content;
         $cleanContent = strip_tags($mainContent);
@@ -131,18 +147,30 @@ class AdminPostController extends Controller
         $excerptWords = array_slice($words, 0, 50);
         $excerpt = implode(' ', $excerptWords);
 
-        $post->title = $request->title;
-        $post->slug = Str::slug($request->slug);
-        $post->featured_image = $featuredImagePath;
-        $post->main_content = $request->main_content;
-        $post->excerpt = $excerpt;
-        $post->page_description = $request->page_description;
-        $post->page_keywords = $request->page_keywords;
-        $post->category_id = $request->category_id;
-        $post->tags = $tagIds;
-        $post->user_id = $post->user_id;
-        $post->published = $request->published;
-        $post->save();
+        $siteUrl = Config::get('configurations.app_url', config('app.url'));
+        $slug = Str::slug($request->input('title'));
+
+        $canonicalUrl = $siteUrl.'/who-work-with/'.$slug;
+
+        $post->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'featured_image' => $featuredImagePath,
+            'main_content' => $request->main_content,
+            'excerpt' => $excerpt,
+            'category_id' => $request->category_id,
+            'user_id' => Auth::user()->id,
+            'published' => $request->published,
+        ]);
+
+        $pagePostSeo->update([
+            'seo_title' => $request->input('seo_title'),
+            'seo_description' => $request->input('seo_description'),
+            'seo_canonical_url' => $canonicalUrl,
+            'seo_property_type' => 'article',
+            'seo_keywords' => $request->input('seo_keywords'),
+            'post_id' => $post->id
+        ]);
 
         return redirect('admin/posts')->with('success', 'Post has been updated successfully');
     }

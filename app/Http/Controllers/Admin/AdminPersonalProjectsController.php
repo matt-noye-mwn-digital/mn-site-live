@@ -7,6 +7,7 @@ use App\Http\Requests\FormRequests\PersonalProjectsStoreRequest;
 use App\Models\PagePostSeo;
 use App\Models\PersonalProjects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -55,6 +56,11 @@ class AdminPersonalProjectsController extends Controller
         }
         $servicesUsed = implode(',', $request->services_used);
 
+        $siteUrl = Config::get('configurations.app_url', config('app.url'));
+        $slug = Str::slug($request->input('name'));
+
+        $canonicalUrl = $siteUrl.'/who-work-with/'.$slug;
+
         $personalProject = PersonalProjects::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
@@ -69,7 +75,7 @@ class AdminPersonalProjectsController extends Controller
         PagePostSeo::create([
             'seo_title' => $request->input('seo_title'),
             'seo_description' => $request->input('seo_description'),
-            'seo_canonical_url' => $request->input('seo_canonical_url'),
+            'seo_canonical_url' => $canonicalUrl,
             'seo_property_type' => $request->input('seo_property_type'),
             'seo_keywords' => $request->input('seo_keywords'),
             'per_project_id' => $personalProject->id,
@@ -104,6 +110,7 @@ class AdminPersonalProjectsController extends Controller
     public function update(Request $request, string $id)
     {
         $personalProject = PersonalProjects::findOrFail($id);
+        $pagePostSeo = PagePostSeo::where('per_project_id', $personalProject->id);
         $featuredImage = NULL;
         $responsiveImage = NULL;
 

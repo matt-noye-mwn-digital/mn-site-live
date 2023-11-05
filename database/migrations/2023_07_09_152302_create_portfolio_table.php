@@ -23,9 +23,6 @@ return new class extends Migration
             $table->string('mobile_desktop_tablet_image')->nullable();
             $table->text('testimonial_content')->nullable();
             $table->string('testimonial_author')->nullable();
-            $table->string('seo_title')->nullable();
-            $table->string('seo_keywords')->nullable();
-            $table->string('seo_description')->nullable();
             $table->timestamps();
         });
     }

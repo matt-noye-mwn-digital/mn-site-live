@@ -36,4 +36,13 @@ class PagePostSeo extends Model
     public function personalProject(){
         return $this->belongsTo(PersonalProjects::class);
     }
+    public function portfolioProject(){
+        return $this->belongsTo(Portfolio::class);
+    }
+    public function www(){
+        return $this->belongsTo(WhoWorkWith::class);
+    }
+    public function wid(){
+        return $this->belongsTo(WhatIDo::class);
+    }
 }

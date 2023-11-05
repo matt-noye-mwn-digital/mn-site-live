@@ -140,7 +140,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <label for="">SEO Keywords</label>
-                                <input type="text" name="seo_keyword" id="seo_keyword" value="{{ old('seo_keyword') }}">
+                                <input type="text" name="seo_keywords" id="seo_keywords" value="{{ old('seo_keyword') }}">
                                 <x.form-errors fieldName="seo_keywords"/>
                             </div>
                         </div>

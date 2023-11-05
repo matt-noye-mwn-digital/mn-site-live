@@ -156,7 +156,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <label for="">SEO Keywords</label>
-                                <input type="text" name="seo_keyword" id="seo_keyword" value="{{ old('seo_keyword', $pp->seo->seo_keywords) }}">
+                                <input type="text" name="seo_keywords" id="seo_keywords" value="{{ old('seo_keyword', $pp->seo->seo_keywords) }}">
                                 <x.form-errors fieldName="seo_keywords"/>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="">Current SEO Image</label>
-                                    @if($pp->seo_image == NULL)
+                                    @if($pp->seo->seo_image == NULL)
                                         No SEO image set
                                     @else
                                         <img class="img-fluid" src="{{ Storage::url($pp->seo->seo_image) }}" style="display: block; height: 150px; margin-left: 0; width: auto;">
