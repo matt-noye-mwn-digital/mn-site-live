@@ -48,13 +48,13 @@
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end">
                                             <li>
-                                                <a href="">View</a>
+                                                <a href="{{ route('admin.personal-projects.show', $pp->id) }}">View</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('admin.personal-projects.edit', $pp->id) }}">Edit</a>
                                             </li>
                                             <li>
-                                                <form action="" method="post">
+                                                <form action="{{ route('admin.personal-projects.destroy', $pp->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="confirm-delete-btn" type="submit">Delete</button>

@@ -83,9 +83,9 @@ class AdminPersonalProjectsController extends Controller
      */
     public function show(string $id)
     {
-        $personalProject = PersonalProjects::findOrFail($id);
+        $pp = PersonalProjects::findOrFail($id);
 
-        return view('admin.pages.personal-projects.show', compact($personalProject));
+        return view('admin.pages.personal-projects.show', compact('pp'));
     }
 
     /**
