@@ -80,7 +80,7 @@ class AdminPageController extends Controller
 
         $page = Page::create([
             'page_title' => $request->input('page_title'),
-            'page_slug' => $pageSlug,
+            'slug' => $pageSlug,
             'published' => 1,
         ]);
 

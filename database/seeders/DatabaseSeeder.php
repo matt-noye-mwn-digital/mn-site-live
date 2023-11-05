@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             KnowledgebaseCategorySeeder::class,
             SettingSeeder::class,
             WhoWorkWithSeeder::class,
+            CurrentPageSeeder::class,
         ]);
     }
 }
