@@ -26,6 +26,7 @@ use App\Http\Controllers\Frontend\Pages\FrontendHomepageController;
 use App\Http\Controllers\Frontend\Pages\FrontendKnowledgebaseController;
 use App\Http\Controllers\Frontend\Pages\FrontendWhoWorkWithController;
 use App\Http\Controllers\Frontend\Pages\ResourcePageController;
+use App\Services\GoogleAnaltyics;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\SitemapGenerator;
@@ -44,6 +45,7 @@ use Spatie\Sitemap\SitemapGenerator;
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function(){
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
+
     //Form Submissions
     Route::prefix('form-submissions')->group(function(){
         Route::get('contact-form', [AdminFormSubmissionController::class, 'contactForm'])->name('form-submissions.contact-form');
@@ -53,10 +55,17 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
     });
 
     //Knowledgebase
-    Route::prefix('knowledgebase')->group(function(){
+    Route::prefix('knowledgebase')->name('knowledgebase.')->group(function(){
+        Route::get('/', [AdminKnowledgeBaseController::class, 'index'])->name('index');
+        Route::get('create', [AdminKnowledgebaseController::class, 'create'])->name('create');
+        Route::post('store', [AdminKnowledgebaseController::class, 'store'])->name('store');
+        Route::get('{id}/show', [AdminKnowledgebaseController::class, 'show'])->name('show');
+        Route::get('edit', [AdminKnowledgebaseController::class, 'edit'])->name('edit');
+        Route::put('{id}/update', [AdminknowledgebaseController::class, 'update'])->name('update');
+        Route::delete('{id}/destroy', [AdminKnowledgebaseController::class, 'destroy'])->name('destroy');
         Route::resource('knowledgebase-categories', AdminKnowledgebaseCategoryController::class);
     });
-    Route::resource('knowledgebase', AdminKnowledgebaseController::class);
+    //Route::resource('knowledgebase', AdminKnowledgebaseController::class);
 
     //Pages
     Route::prefix('pages')->group(function(){
@@ -66,7 +75,7 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
         Route::get('/edit-page/{id}', [AdminPageController::class, 'edit'])->name('pages.edit');
         Route::put('/update-page/{id}', [AdminPageController::class, 'update'])->name('pages.update');
         Route::resource('homepage', AdminHomepageController::class);
-        Route::resource('knowledgebase', AdminKnowledgebaseMainPageController::class);
+        //Route::resource('knowledgebase', AdminKnowledgebaseMainPageController::class);
         Route::resource('who-work-with-page', AdminWhoWorkWithPageContentController::class);
     });
 
@@ -79,7 +88,6 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
     //Posts & Categories
     Route::prefix('posts')->group(function(){
        Route::resource('post-categories', AdminPostCategoryController::class);
-       Route::resource('post-tags', AdminPostTagsController::class);
     });
     Route::resource('posts', AdminPostController::class);
 

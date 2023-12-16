@@ -29,22 +29,20 @@
             <li>
                 <a href="{{ route('admin.post-categories.index') }}">Categories</a>
             </li>
-            <li>
-                <a href="{{ route('admin.post-tags.index') }}">Tags</a>
-            </li>
         </ul>
     </li>
     <li>
         <a href="">Clients</a>
     </li>
-    <li>
-        <a href="{{ route('admin.portfolio.index') }}">Portfolio</a>
-    </li>
+
     <li>
         <a href="{{ route('admin.what-i-do.index') }}">What I Do</a>
     </li>
     <li>
         <a href="{{ route('admin.who-i-work-with.index') }}">Who work with</a>
+    </li>
+    <li>
+        <a href="{{ route('admin.portfolio.index') }}">Portfolio</a>
     </li>
     <li>
         <a href="{{ route('admin.personal-projects.index') }}">Personal Projects</a>
@@ -59,9 +57,22 @@
                 <a href="{{ route('admin.knowledgebase.create') }}">Add New Article</a>
             </li>
             <li>
-                <a href="{{ route('admin.knowledgebase-categories.index') }}">Categories</a>
+                <a href="{{ route('admin.knowledgebase.knowledgebase-categories.index') }}">Categories</a>
             </li>
         </ul>
+    </li>
+    <li class="dropdown">
+        <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Appearance
+        </a>
+        <ul class="dropdown-menu">
+
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Settings
+        </a>
     </li>
     <li class="dropdown">
         <a href="" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Form Submissions</a>

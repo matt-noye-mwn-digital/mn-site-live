@@ -1,5 +1,3 @@
-import DataTable from 'datatables.net-dt';
-
 $(document).ready(function(){
 
     //Desktop code for header and sidebar
@@ -22,11 +20,66 @@ $(document).ready(function(){
         });
     }
 
+    $('.dataTablesTableBasic').DataTable({
+        searching: false,
+        paging: false,
+        info: false,
+        scrollX: 400,
+        scrollY: 400,
 
-    //Datatables initial config
-    let table = new DataTable('.dataTablesTable', {
-        responsive: true
     });
+
+    $('.dateSortingTable').DataTable({
+        paging: true,
+        searching: false,
+        ordering: true,
+        scrollX: true,
+        pageLength: 30,
+        columnDefs: [
+            {
+                targets: [0],
+                type: 'datetime-moment',
+                render: function(data, type, row) {
+                    // Split the date and time
+                    var dateArray = data.split('<br>');
+                    var date = dateArray[0].trim();
+
+                    // Adjust the format if required
+                    return moment(date, 'DD/MM/YYYY').format('DD/MM/YYYY');
+                }
+            }
+        ]
+    });
+    $('.allBookingsDateSortingTable').DataTable({
+        paging: true,
+        searching: false,
+        ordering: true,
+        scrollX: true,
+        pageLength: 30,
+        columnDefs: [
+            {
+                targets: [0],
+                type: 'date', // Use 'date' type for date-only columns
+                render: function(data, type, row) {
+                    // Split the date and time
+                    var dateArray = data.split('<br>');
+                    var date = dateArray[0].trim();
+
+                    // Adjust the format if required
+                    return moment(date, 'DD/MM/YYYY').format('DD/MM/YYYY');
+                }
+            }
+        ]
+    });
+    $('.dataTablesTable').DataTable({
+        paging: false,
+        searching: false,
+        ordering: true,
+        scrollX: true,
+        pageLength: 30,
+    })
+
+
 
     //Confirm Delete button with SA
     $('.confirm-delete-btn').click(function(event){

@@ -16,7 +16,7 @@
                     <h1>All Knowledgebase Categories</h1>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{ route('admin.knowledgebase-categories.create') }}" class="darkPurpleBtn">
+                    <a href="{{ route('admin.knowledgebase.knowledgebase-categories.create') }}" class="darkPurpleBtn">
                         Create new post <i class="fas fa-plus"></i>
                     </a>
                 </div>
@@ -46,14 +46,14 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li>
-                                            <a href="{{ route('admin.knowledgebase-categories.show', $category->id) }}">View</a>
+                                            <a href="{{ route('admin.knowledgebase.knowledgebase-categories.show', $category->id) }}">View</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('admin.knowledgebase-categories.edit', $category->id) }}">Edit</a>
+                                            <a href="{{ route('admin.knowledgebase.knowledgebase-categories.edit', $category->id) }}">Edit</a>
                                         </li>
                                         <li>
-                                            <form action="{{ route('admin.knowledgebase-categories.destroy', $category->id) }}" method="POST">
-                                            <form action="{{ route('admin.knowledgebase-categories.destroy', $category->id) }}" method="POST">
+                                            <form action="{{ route('admin.knowledgebase.knowledgebase-categories.destroy', $category->id) }}" method="POST">
+                                            <form action="{{ route('admin.knowledgebase.knowledgebase-categories.destroy', $category->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="confirm-delete-btn delete-btn" type="submit">Delete</button>

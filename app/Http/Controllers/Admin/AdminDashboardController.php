@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactFormSubmissions;
+use App\Models\GetAQuote;
 use Illuminate\Http\Request;
+use Spatie\Analytics\Facades\Analytics;
+use Spatie\Analytics\Period;
 
 class AdminDashboardController extends Controller
 {
@@ -12,7 +16,13 @@ class AdminDashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.dashboard');
+       $sevenDaysAnalyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        $sevenDaysTotalVisitors = $sevenDaysAnalyticsData->sum('activeUsers');
+
+        $contactFormSubmissions = ContactFormSubmissions::orderBy('created_at', 'desc')->get();
+        $quoteFormSubmissions = GetAQuote::orderBy('created_at', 'desc')->limit(10);
+
+        return view('admin.pages.dashboard', compact('contactFormSubmissions', 'quoteFormSubmissions', 'sevenDaysTotalVisitors'));
     }
 
     /**
