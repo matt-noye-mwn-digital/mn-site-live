@@ -22,7 +22,7 @@ class Portfolio extends Model
         'website_link',
         'mobile_desktop_tablet_image',
         'testimonial_content',
-        'tetimonial_author',
+        'testimonial_author',
         'slug',
     ];
 

@@ -90,12 +90,12 @@ header {
         .navbar {
 
             .navbar-brand {
-                color: $mediumPurple;
+                color: $darkPurple;
             }
             ul {
                 li {
                     a {
-                        color: $mediumPurple;
+                        color: $darkPurple;
                         @include transition(all .4s ease-in-out);
 
                         &:hover {

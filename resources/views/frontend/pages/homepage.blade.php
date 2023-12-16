@@ -40,8 +40,8 @@
                         <h1>Hi, I'm <span>Matt Noye</span></h1>
                         <h2>I create <span id="homepageTypeWriter"></span></h2>
                         <div class="btn-group">
-                            <a href="" class="mediumPurpleBtn btn-lg" title="view my work button">View my work <i class="fa-solid fa-arrow-right-long"></i></a>
-                            <a href="" class="whiteBgPurpleTxtBtn btn-lg" title="get in touch button">Get in touch <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <a href="{{ route('portfolio.index') }}" class="mediumPurpleBtn btn-lg" title="view my work button">View my work <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <a href="{{ route('contact-me.index') }}" class="whiteBgPurpleTxtBtn btn-lg" title="get in touch button">Get in touch <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
                 </div>
@@ -137,21 +137,10 @@
                         </div>
                     </div>
                 @endforeach
-                {{--<div class="col-md-6">
-                    <div class="portItem">
-                        <a href="">
-                            <div class="content">
-                                <h5>the title</h5>
-                                <p>tagline</p>
-                            </div>
-                            <img class="img-fluid mainImage" src="{{ asset('images/Exelby-service.png') }}">
-                        </a>
-                    </div>
-                </div>--}}
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a href="" class="darkPurpleBtn btn-lg" title="My recent work main button click">View All <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a href="{{ route('portfolio.index') }}" class="darkPurpleBtn btn-lg" title="My recent work main button click">View All <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
         </div>
@@ -186,7 +175,7 @@
                     </div>
                     <div class="btn-group">
                         <a href="{{ route('get-a-quote.index') }}" class="darkPurpleBtn btn-lg" title="Who Work With get quote button">Get a Quote <i class="fa-solid fa-arrow-right-long"></i></a>
-                        <a href="" class="darkPurpleBtn btn-lg">Let's Chat <i class="fa-solid fa-arrow-right-long"></i></a>
+                        <a href="{{ route('contact-me.index') }}" class="darkPurpleBtn btn-lg">Let's Chat <i class="fa-solid fa-arrow-right-long"></i></a>
                     </div>
 
                 </div>
@@ -219,6 +208,9 @@
                                     <p>
                                         {!! post_generate_excerpt($post->main_content) !!}
                                     </p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="">Continue Reading <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </a>
                         </div>

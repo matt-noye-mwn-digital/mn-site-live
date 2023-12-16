@@ -161,7 +161,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="">Testimonial Author</label>
-                                <input type="text" name="testimonial_author" id="testimonial_author" value="{{ $portfolioItem->testimonial_content }}">
+                                <input type="text" name="testimonial_author" id="testimonial_author" value="{{ $portfolioItem->testimonial_author }}">
                                 @error('testimonial_author')
                                 <div class="text-danger">
                                     {{ $message }}

@@ -14,7 +14,7 @@ class FrontendPortfolioController extends Controller
      */
     public function index()
     {
-        $portfolioItems = Portfolio::all();
+        $portfolioItems = Portfolio::paginate(10);
 
         return view('frontend.pages.portfolio.index', compact('portfolioItems'));
     }

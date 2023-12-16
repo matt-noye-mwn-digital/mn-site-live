@@ -11,6 +11,9 @@
             @php
                 $whatIDoItems = \App\Models\WhatIDo::orderBy('title', 'asc')->get();
             @endphp
+            @php
+                $posts = \App\Models\Post::orderBy('created_at', 'desc')->limit(8)->get();
+            @endphp
             <div class="footerMain">
                 <div class="container">
                     <div class="row">
@@ -67,6 +70,15 @@
                         </div>
                         <div class="col-md-3">
                             <h5 class="footerTitle">Latest Posts</h5>
+                            <ul class="list-unstyled">
+                                @foreach($posts as $post)
+                                    <li>
+                                        <a href="{{ route('posts.show', ['category' => strtolower($post->category->name), 'slug' => $post->slug]) }}">
+                                            {{ $post->title }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>

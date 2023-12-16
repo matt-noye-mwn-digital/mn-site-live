@@ -37,16 +37,21 @@
                 @foreach($portfolioItems as $portfolioItem)
                     <div class="col-md-6">
                         <div class="portItem">
-                            <a href="/portfolio/{{ $portfolioItem->slug }}">
+                            <a href="{{ route('portfolio.show', ['slug' => $portfolioItem->slug]) }}" title="{{ $portfolioItem->name }} portfolio item click">
                                 <div class="content">
-                                    <h5>the title</h5>
-                                    <p>tagline</p>
+                                    <h5>{{ $portfolioItem->name }}</h5>
+                                    {!! $portfolioItem->tagline !!}
                                 </div>
-                                <img class="img-fluid mainImage" src="{{ asset('images/Exelby-service.png') }}">
+                                <img class="img-fluid mainImage" src="{{ Storage::url($portfolioItem->mobile_desktop_tablet_image) }}">
                             </a>
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    {{ $portfolioItems->links() }}
+                </div>
             </div>
         </div>
     </section>

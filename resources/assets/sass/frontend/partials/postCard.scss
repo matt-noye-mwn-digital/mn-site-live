@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include transition(all .4s ease-in-out);
 
     a {
         text-decoration: none;
@@ -42,6 +43,40 @@
                 color: $white;
                 font-family: $montsReg;
                 font-size: 1rem;
+            }
+        }
+    }
+    .card-footer {
+        background-color: transparent;
+        border: 0;
+        a {
+            color: $white;
+            display: block;
+            font-family: $roboMedium;
+            font-size: 0;
+            text-align: right;
+            @include transition(all .4s ease-in-out);
+            width: 100%;
+
+            i {
+                font-size: 0;
+                margin-left: 5px;
+                @include transition(all .4s ease-in-out);
+            }
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05);
+
+        .card-footer {
+            a {
+                font-size: 1.15rem;
+
+                i {
+                    font-size: 1rem;
+                    margin-left: 15px;
+                }
             }
         }
     }

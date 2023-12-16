@@ -1,6 +1,7 @@
 .singlePortfolioItemTop {
     height: 600px;
     position: relative;
+    z-index: 5;
 
     img.mainBgImage {
         display: block;
@@ -17,6 +18,7 @@
         flex-direction: column;
         justify-content: center;
         height: 100%;
+        padding-top: 100px;
         position: absolute;
         top: 0;
         width: 100%;
@@ -25,7 +27,7 @@
         h1 {
             color: $white;
             font-family: $roboBold;
-            font-size: 6rem;
+            font-size: 5rem;
         }
         p {
             color: $white;
@@ -33,6 +35,25 @@
             font-size: 1.25rem;
             margin-bottom: 2.5rem;
         }
+
+        img.heroFeaturedImage {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+.singlePortfolioItemResponsiveImage {
+    background-color: transparent;
+    margin-top: -100px;
+    position: relative;
+    z-index: 10;
+
+    img.mainImage {
+        display: block;
+        height: auto;
+        margin: auto;
+        width: 100%;
     }
 }
 .singlePortfolioItemMain {
@@ -64,6 +85,7 @@
             font-family: $roboMedium;
             font-size: 2rem;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
         ul {
             li {
@@ -73,6 +95,76 @@
                 font-size: 1.15rem;
                 margin-bottom: 20px;
                 padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+.singlePortfolioItemTestimonialBanner{
+    background-color: $white;
+    padding: 4rem 0;
+
+    .sectionTitle {
+        margin-bottom: 2rem;
+    }
+
+    .testimonialWrapper {
+        background-color: $lightGrey;
+        border: 0;
+        border-radius: 40px;
+
+        padding: 4rem 2rem;
+
+        p {
+            color: $darkPurple;
+            font-family: $montsReg;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h5 {
+            color: $lightPurple;
+            font-family: $roboMedium;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    }
+}
+
+.singlePortfolioItemContactBanner {
+    background-color: $white;
+    padding: 4rem 0 0 0;
+    h5 {
+        color: $darkPurple;
+        font-family: $roboBold;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn-group {
+        gap: 30px;
+
+        .darkPurpleBtn,
+        .mediumPurpleBtn {
+            align-items: center;
+            border-radius: 10px !important;
+            display: flex;
+            flex-direction: row;
+            font-size: 1.25rem !important;
+            justify-content: center;
+            @include transition(all .4s ease-in-out);
+
+            i {
+                margin-left: 10px;
+                @include transition(all .4s ease-in-out);
+            }
+
+            &:hover {
+
+                i {
+                    margin-left: 20px;
+                }
             }
         }
     }

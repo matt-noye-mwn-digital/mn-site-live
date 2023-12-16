@@ -66,7 +66,9 @@
                                 </div>
                                 <div class="card-body">
                                     <h4>{{ $post->title }}</h4>
-                                    {!! Str::limit($post->main_content, 120) !!}
+                                    <p>
+                                        {!! post_generate_excerpt($post->main_content) !!}
+                                    </p>
                                 </div>
                             </a>
                         </div>
