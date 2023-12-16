@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminFormSubmissionController;
+use App\Http\Controllers\Admin\AdminImageUploadController;
 use App\Http\Controllers\Admin\AdminKnowledgebaseCategoryController;
 use App\Http\Controllers\Admin\AdminKnowledgebaseController;
 use App\Http\Controllers\Admin\AdminPageController;
@@ -53,6 +54,11 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
         Route::get('quote-form', [AdminFormSubmissionController::class, 'quoteForm'])->name('form-submissions.quote-form');
         Route::get('quote-form-single/{id}', [AdminFormSubmissionController::class, 'quoteFormSingle'])->name('form-submissions.quote-form-single');
     });
+
+    //File/image upload
+    Route::post('upload-image', [AdminImageUploadController::class, 'upload'])
+        ->name('image-upload')
+        ->middleware('web');
 
     //Knowledgebase
     Route::prefix('knowledgebase')->name('knowledgebase.')->group(function(){
