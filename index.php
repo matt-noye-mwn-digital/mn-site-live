@@ -1,3 +1,3 @@
 <?php 
-  echo "Hello this site is coming soon";
+  echo "Hello this site is coming soon, check back soon";
 ?>
