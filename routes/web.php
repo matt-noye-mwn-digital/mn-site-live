@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\AdminWhoWorkWithController;
 use App\Http\Controllers\Admin\Pages\AdminHomepageController;
 use App\Http\Controllers\Admin\Pages\AdminKnowledgebaseMainPageController;
 use App\Http\Controllers\Admin\Pages\AdminWhoWorkWithPageContentController;
+use App\Http\Controllers\DeployController;
 use App\Http\Controllers\Frontend\FrontendPortfolioController;
 use App\Http\Controllers\Frontend\FrontendWhatIDoController;
 use App\Http\Controllers\Frontend\Pages\FrontendAboutPageController;
