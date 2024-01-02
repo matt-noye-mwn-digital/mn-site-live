@@ -1,18 +1,21 @@
 .getStartedBanner {
-    background-color: $white;
-    padding: 10rem 0 4rem 0;
+    background-color: $lightGrey;
+    padding:4rem 0 0 0;
     position: relative;
 
-    .topWave {
-        height: auto;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 20;
-        img {
-            display: block;
-            height: auto;
-            width: 100%;
-        }
+    h5 {
+        color: $mediumPurple;
+        font-family: $roboBold;
+        font-size: 4rem;
+    }
+    h6 {
+        color: $darkPurple;
+        font-family: $roboMedium;
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .btn-group {
+        gap: 30px;
     }
 }

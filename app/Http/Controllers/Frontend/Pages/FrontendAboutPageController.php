@@ -29,6 +29,8 @@ class FrontendAboutPageController extends Controller
             OpenGraph::addProperty('type', $page->seo->seo_property_type);
             OpenGraph::addImage();
         }
+
+        return view('frontend.pages.about-me.index');
     }
 
     /**
