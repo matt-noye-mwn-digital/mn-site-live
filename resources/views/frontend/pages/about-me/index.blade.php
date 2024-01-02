@@ -183,7 +183,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <h5>Ready to start a project?</h5>
-                    <h6>Get in touch with me or request a quote to get started today</h6>
+                    <h6>Get in touch with me or request a quote to get started today.</h6>
+                    <p>This is to test the deployment</p>
                 </div>
                 <div class="col-lg-4">
                     <div class="btn-group">
