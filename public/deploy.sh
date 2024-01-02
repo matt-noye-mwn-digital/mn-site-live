@@ -1,32 +1,8 @@
-#!/bin/bash
-
-# Add this section to print environment variables to a log file
-env > "/home/sites/31a/6/6d0de60baf/public_html/environment.log"
-LOG_FILE="/home/sites/31a/6/6d0de60baf/public_html/deployment.log"
-
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') $1" >> "$LOG_FILE"
-}
-
-log "Starting deployment..."
-
-log "Pulling the latest changes from GitHub..."
-git pull origin main
-
-log "Installing/Updating Composer dependencies..."
-composer install --no-interaction --prefer-dist --optimize-autoloader
-
-log "Running database migrations and seeders..."
-php artisan migrate --force
-php artisan db:seed --force
-
-log "Optimizing Laravel..."
-php artisan optimize
-
-log "Clearing cache..."
-php artisan cache:clear
-php artisan config:cache
-
-log "Deployment completed."
-
-
+#!/bin/sh# activate maintenance mode
+php artisan down # update source code
+git pull # update PHP dependencies
+composer install --no-interaction --no-dev --prefer-dist# --no-interaction Do not ask any interactive question
+# --no-dev  Disables installation of require-dev packages.
+# --prefer-dist  Forces installation from package dist even for dev versions.# update database
+php artisan migrate --force # --force  Required to run when in production.# stop maintenance mode
+php artisan up
