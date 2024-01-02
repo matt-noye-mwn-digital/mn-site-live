@@ -1,0 +1,95 @@
+{
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf": {
+    "file": "assets/fa-brands-400-003f1154.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-faae6fc0.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-7d81a1a7.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-9169d8be.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-cea79b34.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-886c8611.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf": {
+    "file": "assets/fa-v4compatibility-455e8e72.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-335fd7d9.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
+  },
+  "resources/assets/fonts/Montserrat-Light.ttf": {
+    "file": "assets/Montserrat-Light-e3a4d568.ttf",
+    "src": "resources/assets/fonts/Montserrat-Light.ttf"
+  },
+  "resources/assets/fonts/Montserrat-Regular.ttf": {
+    "file": "assets/Montserrat-Regular-dcfe8df2.ttf",
+    "src": "resources/assets/fonts/Montserrat-Regular.ttf"
+  },
+  "resources/assets/fonts/Roboto-Bold.ttf": {
+    "file": "assets/Roboto-Bold-ec685a46.ttf",
+    "src": "resources/assets/fonts/Roboto-Bold.ttf"
+  },
+  "resources/assets/fonts/Roboto-Medium.ttf": {
+    "file": "assets/Roboto-Medium-9d0d55a3.ttf",
+    "src": "resources/assets/fonts/Roboto-Medium.ttf"
+  },
+  "resources/assets/js/admin.js": {
+    "file": "assets/admin-b987d10a.js",
+    "isEntry": true,
+    "src": "resources/assets/js/admin.js"
+  },
+  "resources/assets/js/app.js": {
+    "file": "assets/app-ecd146ba.js",
+    "isEntry": true,
+    "src": "resources/assets/js/app.js"
+  },
+  "resources/assets/js/client.js": {
+    "file": "assets/client-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/assets/js/client.js"
+  },
+  "resources/assets/js/frontend.js": {
+    "file": "assets/frontend-c608afce.js",
+    "isEntry": true,
+    "src": "resources/assets/js/frontend.js"
+  },
+  "resources/assets/sass/admin.scss": {
+    "file": "assets/admin-72034ca9.css",
+    "isEntry": true,
+    "src": "resources/assets/sass/admin.scss"
+  },
+  "resources/assets/sass/app.scss": {
+    "file": "assets/app-8a15e13f.css",
+    "isEntry": true,
+    "src": "resources/assets/sass/app.scss"
+  },
+  "resources/assets/sass/client.scss": {
+    "file": "assets/client-048e941f.css",
+    "isEntry": true,
+    "src": "resources/assets/sass/client.scss"
+  },
+  "resources/assets/sass/frontend.scss": {
+    "file": "assets/frontend-cb741b02.css",
+    "isEntry": true,
+    "src": "resources/assets/sass/frontend.scss"
+  },
+  "resources/assets/sass/login.scss": {
+    "file": "assets/login-e09ff76b.css",
+    "isEntry": true,
+    "src": "resources/assets/sass/login.scss"
+  }
+}

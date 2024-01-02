@@ -198,4 +198,6 @@ return [
         'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
     ])->toArray(),
 
+
+    'deploy_secret' => env('APP_DEPLOY_SECRET'),
 ];

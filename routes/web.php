@@ -156,6 +156,8 @@ Route::prefix('who-i-work-with')->group(function(){
     Route::get('{slug}', [FrontendWhoWorkWithController::class, 'show'])->name('who-work-with.show');
 });
 
+Route::post('deploy', [DeployController::class, 'deploy']);
+
 
 //Sitemap route do not touch
 Route::get('generate-sitemap', function () {
