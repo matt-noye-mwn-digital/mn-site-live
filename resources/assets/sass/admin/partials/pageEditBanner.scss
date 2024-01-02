@@ -1,0 +1,13 @@
+.pageEditBanner {
+    background-color: $white;
+    border-radius: 20px;
+    margin-top: 2rem;
+    padding: 2rem ;
+
+    .btn-group {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+    }
+}

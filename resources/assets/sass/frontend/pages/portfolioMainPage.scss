@@ -1,0 +1,157 @@
+#portfolioPageTop {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+
+    img.mainBgImage {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 6rem;
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+#portfolioPageMain {
+    background-color: $white;
+    padding: 4rem 0;
+    .portItem {
+        background-color: $mediumPurple;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 300px;
+        margin-bottom: 1.875rem;
+        overflow-x:hidden;
+        padding: 2rem;
+        position: relative;
+        @include transition(all .4s ease-in-out);
+
+        a {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            text-decoration: none;
+            @include transition(all .4s ease-in-out);
+            width: 100%;
+
+            .content {
+                h5 {
+                    color: $white;
+                    font-family: $roboBold;
+                    font-size: 2rem;
+                    margin-bottom: 30px;
+                }
+                p {
+                    color: $white;
+                    font-family: $montsReg;
+                    font-size: 1rem;
+                }
+                width: 50%;
+            }
+
+            img.mainImage {
+                height: 250px;
+                position: absolute;
+                right: -50%;
+                top: 50%;
+                transform: translateY(-50%);
+                @include transition(all .4s ease-in-out);
+                width: auto;
+            }
+            &:hover {
+                .content {
+
+                }
+                img.mainImage {
+                    height: 280px;
+                    right: 0;
+                    width: auto;
+                }
+            }
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    ul.pagination {
+        align-items: center;
+        background-color: transparent;
+        border: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        li.page-item {
+            background-color: transparent;
+            border: 0;
+
+            a.page-link {
+                background-color: transparent;
+                border: 1px solid $darkPurple;
+                color: $darkPurple;
+                font-family: $montsReg;
+                font-size: 1rem;
+
+                @include transition(all .4s ease-in-out);
+
+                &:hover {
+                    background-color: $darkPurple;
+                    border: 1px solid $darkPurple;
+                    box-shadow: none;
+                    color: $white;
+                    font-size: 1rem;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+
+            &.active {
+                span.page-link {
+                    background-color: $darkPurple;
+                    border: 1px solid $darkPurple;
+                    color: $white;
+                    font-size: 1rem;
+                    @include transition(all .4s ease-in-out);
+                }
+            }
+            &.disabled {
+                span.page-link {
+                    background-color: $lightGrey;
+                    border: 1px solid $darkPurple;
+                    color: $darkPurple;
+                    font-family: $montsReg;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

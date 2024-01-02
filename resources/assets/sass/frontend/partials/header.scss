@@ -1,0 +1,130 @@
+header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    @include transition(all .4s ease-in-out);
+    width: 100%;
+    z-index: 1080;
+    .navbar {
+        .navbar-brand {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 2rem;
+            @include transition(all .4s ease-in-out);
+        }
+        .navbar-toggler {
+            .fa-bars {
+                color: $white;
+            }
+            .fa-times {
+                color: $lightPurple;
+            }
+        }
+        ul {
+            li {
+                margin-right: 30px;
+                a {
+                    color: $white;
+                    font-family: $roboMedium;
+                    font-size: 1.25rem;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    @include transition(all .4s ease-in-out);
+                    &:hover {
+                        box-shadow: none;
+                        color: $lightPurple;
+                        outline: none;
+                        text-decoration: none;
+                    }
+                }
+                &.active {
+                    a {
+
+                    }
+                }
+                &.dropdown {
+
+                }
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                a.getQuoteHeaderButton {
+                    background-color: $mediumPurple;
+                    border: 0;
+                    border-radius :20px;
+                    color: $white;
+                    font-family: $roboMedium;
+                    padding: .75rem 1.5rem;
+                    text-align: center;
+                    @include transition(all .4s ease-in-out);
+
+                    .fa-arrow-right-long {
+                        font-size: 0;
+                        margin-left: 5px;
+                        @include transition(all .4s ease-in-out);
+                    }
+
+                    &:hover {
+                        background-color: $lightPurple;
+                        box-shadow: none;
+                        color: $white;
+                        outline: none;
+                        text-decoration: none;
+
+                        .fa-arrow-right-long {
+                            font-size: 1.1rem;
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    &.scrolled {
+        background-color: rgba(255,255,255,0.6);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+        .navbar {
+
+            .navbar-brand {
+                color: $darkPurple;
+            }
+            ul {
+                li {
+                    a {
+                        color: $darkPurple;
+                        @include transition(all .4s ease-in-out);
+
+                        &:hover {
+                            box-shadow: none;
+                            color: $lightPurple;
+                            outline: none;
+                            text-decoration: none;
+                        }
+                    }
+                    a.getQuoteHeaderButton {
+                        background-color: $mediumPurple;
+                        border: 0;
+                        border-radius :20px;
+                        color: $white;
+                        font-family: $roboMedium;
+                        padding: .75rem 1.5rem;
+                        text-align: center;
+                        @include transition(all .4s ease-in-out);
+
+                        &:hover {
+                            background-color: $lightPurple;
+                            box-shadow: none;
+                            color: $white;
+                            outline: none;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

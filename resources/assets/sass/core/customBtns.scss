@@ -1,0 +1,137 @@
+a.darkPurpleBtn,
+button.darkPurpleBtn,
+input.darkPurpleBtn {
+    background-color: $darkPurple;
+    border: 0;
+    border-radius: 10px;
+    color: $white;
+    font-family: $roboMedium;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    @include transition(all .4s ease-in-out);
+
+    .fa-arrow-right-long {
+        font-size: 0;
+        margin-left: 5px;
+        @include transition(all .4s ease-in-out);
+    }
+
+    &:hover {
+        background-color: $mediumPurple;
+        box-shadow: none;
+        color: $white;
+        outline: none;
+        text-decoration: none;
+        .fa-arrow-right-long {
+            font-size: .9rem;
+        }
+    }
+}
+
+a.mediumPurpleBtn,
+button.mediumPurpleBtn,
+input.mediumPurpleBtn {
+    background-color: $mediumPurple;
+    border: 0;
+    border-radius: 10px;
+    color: $white;
+    font-family: $roboMedium;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    @include transition(all .4s ease-in-out);
+
+    .fa-arrow-right-long {
+        margin-left: 5px;
+        @include transition(all .4s ease-in-out);
+    }
+
+    &:hover {
+        background-color: $lightPurple;
+        border: 0;
+        box-shadow: none;
+        color: $white;
+        outline: none;
+        text-decoration: none;
+
+        .fa-arrow-right-long {
+            font-size: .9rem;
+        }
+    }
+}
+a.whiteBgPurpleTxtBtn,
+button.whiteBgPurpleTxtBtn,
+input.whiteBgPurpleTxtBtn {
+    background-color: $white;
+    border: 1px solid $white;
+    border-radius: 10px;
+    color: $mediumPurple;
+    font-family: $roboMedium;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    @include transition(all .4s ease-in-out);
+
+    .fa-arrow-right-long {
+        font-size: 0;
+        margin-left: 5px;
+        @include transition(all .4s ease-in-out);
+    }
+
+    &:hover {
+        background-color: transparent;
+        border: 1px solid $white;
+        box-shadow: none;
+        color: $white;
+        outline: none;
+        text-decoration: none;
+
+        .fa-arrow-right-long {
+            font-size: .9rem;
+        }
+    }
+}
+a.delete-btn,
+button.delete-btn,
+input.delete-btn {
+    background-color: red;
+    border: 0;
+    border-radius: 10px;
+    color: $white;
+    font-family: $roboMedium;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    @include transition(all .4s ease-in-out);
+
+    &:hover {
+        background-color: lighten(red, 5%);
+        border: 0;
+        box-shadow: none;
+        color: $white;
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+
+.btn-lg {
+    font-size: 1.25rem !important;
+    padding: 1rem 2rem !important;
+
+    .fa-arrow-right-long {
+        font-size: 0;
+        @include transition(all .4s ease-in-out);
+    }
+
+    &:hover {
+        .fa-arrow-right-long {
+            font-size: 1.15rem;
+        }
+    }
+}

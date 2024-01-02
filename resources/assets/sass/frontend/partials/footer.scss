@@ -1,0 +1,92 @@
+.grecaptcha-badge {
+    z-index: 2000;
+}
+footer {
+    background-color: $darkPurple;
+    .footerMain {
+        padding: 4rem 0;
+
+        .footerTitle {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        ul.contactDetails {
+            margin: 0 0 20px 0;
+            padding: 0;
+            li {
+                display: block;
+                margin-bottom: .5rem;
+                width: 100%;
+                a {
+                    color: $white;
+                    font-family: $roboMedium;
+                    font-size: 1.15rem;
+                    text-decoration: none;
+                    @include transition(all .4s ease-in-out);
+
+                    &:hover {
+                        box-shadow: none;
+                        color: $lightPurple;
+                        outline: none;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        ul.socialIcons {
+            margin: 0;
+            padding: 0;
+            li {
+                margin-right: .5rem;
+                a {
+                    color: $white;
+                    font-size: 1.25rem;
+                    text-decoration: none;
+                    @include transition(all .4s ease-in-out);
+
+                    &:hover {
+                        box-shadow: none;
+                        color: $lightPurple;
+                        outline: none;
+                        text-decoration: none;
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                margin-bottom: .5rem;
+                a {
+                    color: $white;
+                    display: block;
+                    text-decoration: none;
+                    @include transition(all .4s ease-in-out);
+
+                    &:hover {
+                        box-shadow: none;
+                        color: $lightPurple;
+                        outline: none;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .footerBottom {
+
+        padding: .75rem 0;
+
+        p {
+            color: $white;
+            font-family: $montsLight;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-bottom: 0;
+        }
+    }
+}

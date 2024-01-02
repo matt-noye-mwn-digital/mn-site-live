@@ -1,0 +1,109 @@
+//Core
+@import "core/mixins";
+@import "core/fonts";
+@import "core/colours";
+@import "core/typography";
+@import "core/customBtns";
+
+.loginPageMain {
+    align-items: center;
+
+    display: flex;
+
+    flex-direction: column;;
+    height: 100vh;
+    justify-content: center;
+
+    .loginWrap {
+        background-color: $white;
+        border-radius: 20px;
+
+        overflow: hidden;
+        padding: 3rem 2rem;
+
+        h1 {
+            color: $mediumPurple;
+            font-family: $roboBold;
+            font-size: 4rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        form {
+            .row {
+                margin-bottom: 50px;
+            }
+            label {
+                color: $darkPurple;
+                font-family: $roboMedium;
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            input[type='email'],
+            input[type='password'] {
+                background-color: $white;
+                border: 0;
+                border-bottom: 1px solid $darkPurple;
+                border-radius: 0;
+                color: $darkPurple;
+                font-family: $montsReg;
+                font-size: 1rem;
+                padding-left: 0;
+                padding-right: 0;
+                @include transition(all .4s ease-in-out);
+
+                &:focus {
+                    background-color: transparent;
+                    border: 0 ;
+                    border-bottom: 1px solid $lightPurple;
+                    box-shadow: none;
+                    color: $darkPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+            a {
+                border: 0;
+                box-shadow: none;
+                color: $darkPurple;
+                font-family: $roboMedium;
+                font-size: 1rem;
+                outline: none;
+                text-decoration: none;
+                @include transition(all .4s ease-in-out);
+
+                &:hover {
+                    background-color: transparent;
+                    border: 0;
+                    box-shadow: none;
+                    color: $lightPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+            button {
+                background-color: transparent;
+                border: 1px solid $darkPurple;
+                border-radius: 10px;
+                color: $darkPurple;
+                display: block;
+                font-family: $roboBold;
+                font-size: 1.25rem;
+                padding: .75rem 1rem;
+                text-transform: capitalize;
+                @include transition(all .4s ease-in-out);
+                width: 100%;
+
+                &:hover {
+                    background-color: $darkPurple;
+                    box-shadow: none;
+                    color: $white;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+}

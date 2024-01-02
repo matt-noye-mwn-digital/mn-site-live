@@ -1,0 +1,80 @@
+aside.mainAdminSidebar {
+    background-color: $white;
+    height: 100vh;
+    left: -500px;
+    padding:  1rem;
+    position: fixed;
+    //@include transition(all .4s ease-in-out);
+
+
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+
+            a {
+                color: $black;
+                font-family: $roboMedium;
+                font-size: 1.1rem;
+                text-decoration: none;
+                @include transition(all .4s ease-in-out);
+
+                &:hover {
+                    background-color: transparent;
+                    border: 0;
+                    box-shadow: none;
+                    color: $lightPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+            &.dropdown {
+                display: block;
+                width: 100%;
+
+                a.dropdown-toggle {
+                    color: $black;
+                    font-family: $roboMedium;
+                    font-size: 1.1rem;
+                    text-decoration: none;
+                    @include transition(all .4s ease-in-out);
+
+                    &:hover {
+                        background-color: transparent;
+                        border: 0;
+                        box-shadow: none;
+                        color: $lightPurple;
+                        outline: none;
+                        text-decoration: none;
+                    }
+                }
+                ul.dropdown-menu {
+                    border: 0;
+                    border-radius: 0;
+                    padding: .5rem 1rem;
+                    position: relative !important;
+                    transform: translate(0px, 0px) !important;
+
+                    li {
+                        a {
+                            font-size: 1rem;
+                        }
+
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    &.show {
+        left: 0;
+        width: 15%;
+    }
+}

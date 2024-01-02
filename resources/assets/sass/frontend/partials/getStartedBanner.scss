@@ -1,0 +1,18 @@
+.getStartedBanner {
+    background-color: $white;
+    padding: 10rem 0 4rem 0;
+    position: relative;
+
+    .topWave {
+        height: auto;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 20;
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+}

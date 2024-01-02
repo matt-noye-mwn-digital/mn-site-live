@@ -1,0 +1,197 @@
+.contactPageTop {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    img.mainBgImage {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 6rem;
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            width: 55%;
+        }
+    }
+}
+.contactPageOverviewBanner {
+    background-color: $darkPurple;
+    padding: 4rem 0;
+
+    .item {
+        margin-bottom: 30px;
+
+        h5 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 2.25rem;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: $lightGrey;
+            font-family: $montsReg;
+            font-size: 1rem;
+            text-decoration: none;
+            @include transition(all .4s ease-in-out);
+            i {
+                font-size: 0;
+                margin-left: 5px;
+                @include transition(all .4s ease-in-out);
+            }
+
+            &:hover {
+                box-shadow: none;
+                color: $lightPurple;
+                outline: none;
+                text-decoration: none;
+
+                i {
+                    font-size: 1rem;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.contactPageContactFormBanner {
+
+    .formWrap {
+        form {
+
+            button.darkPurpleBtn {
+                background-color: $darkPurple;
+                border: 0;
+                border-radius: 10px;
+                color: $white;
+                font-family: $roboMedium;
+                font-size: 1rem;
+                padding: .5rem 1rem;
+                text-align: center;
+                text-decoration: none;
+                @include transition(all .4s ease-in-out);
+
+                .fa-paper-plane {
+                    font-size: 0;
+                    margin-left: 5px;
+                    @include transition(all .4s ease-in-out);
+                }
+
+                &:hover {
+                    background-color: $mediumPurple;
+                    box-shadow: none;
+                    color: $white;
+                    outline: none;
+                    text-decoration: none;
+                    .fa-paper-plane {
+                        font-size: .9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+#contactPageContactFormBanner {
+    background-color: $white;
+    padding: 6rem 0;
+
+    .formWrap {
+        form {
+            .row {
+                margin-bottom: 30px;
+            }
+            label {
+                color: $darkPurple;
+                display: block;
+                font-family: $roboBold;
+                font-size: 1.1rem;
+                margin-bottom: 5px;
+                width: 100%;
+            }
+            input[type='text'],
+            input[type='email'],
+            input[type='tel'],
+            select {
+                background-color: $white;
+                border: 1px solid $darkPurple;
+                border-radius: 10px;
+                box-shadow: none;
+                display: block;
+
+                height: 50px;
+
+                outline: none;
+                padding: .5rem;
+                @include transition(all .4s ease-in-out);
+                width: 100%;
+
+                &:focus {
+                    background-color: $white;
+                    border: 1px solid $mediumPurple;
+                    box-shadow: none;
+                    color: $darkPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+            textarea {
+                background-color: $white;
+                border: 1px solid $darkPurple;
+                border-radius: 10px;
+                display: block;
+
+                padding: .5rem;
+                @include transition(all .4s ease-in-out);
+                width: 100%;
+
+                &:focus {
+                    background-color: $white;
+                    border: 1px solid $mediumPurple;
+                    box-shadow: none;
+                    color: $darkPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+            button.darkPurpleBtn {
+                font-size: 1.25rem;
+                padding: 1rem 2rem;
+
+                .fa-paper-plane {
+                    font-size: 0;
+                    margin-left: 5px;
+                    @include transition(all .4s ease-in-out);
+                }
+
+                &:hover {
+                    .fa-paper-plane {
+                        font-size: 1.1rem;
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

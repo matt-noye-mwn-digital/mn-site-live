@@ -1,0 +1,225 @@
+.knowledgebasePageTop  {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+
+    img.mainBgImage {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+
+        h5 {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 4rem;
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        a.backToKnowledgebase {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1rem;
+            text-decoration: none;
+            @include transition(all .4s ease-in-out);
+
+            i {
+                margin-right: 5px;
+                @include transition(all .4s ease-in-out);
+            }
+
+            &:hover {
+                box-shadow: none;
+                color: $lightPurple;
+                outline: none;
+                text-decoration: none;
+
+                i {
+                    margin-right: 20px
+                }
+            }
+        }
+    }
+}
+.knowledgebasePageMain {
+    background-color: $white;
+    padding: 3rem 0;
+
+    .searchFormWrap {
+        margin-bottom: 50px;
+        form {
+            .input-group {
+                height: 60px;
+                transition: border-color 0.4s ease-in-out;
+                input[type='text'] {
+                    background-color: #e2e2e2;
+                    border: 1px solid $mediumGrey;
+                    border-radius: 0;
+                    box-shadow: none;
+                    color: $darkPurple;
+                    font-family: $montsReg;
+                    font-size: 1.25rem;
+                    outline: none;
+                    @include transition(all .4s ease-in-out);
+
+                    &:focus {
+                        background-color: #e2e2e2;
+                        border-color: $mediumPurple;
+                        box-shadow: none;
+                        outline: none;
+                        text-decoration: none;
+                        + button {
+                            background-color: $mediumPurple;
+                        }
+                    }
+
+                }
+                button {
+                    background-color: $darkPurple;
+                    border: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                    color: $white;
+                    font-size: 1.25rem;
+                    height: 100%;
+                    outline: none;
+                    @include transition(all .4s ease-in-out);
+                    width: 90px;
+
+                    &:hover {
+                        background-color: $mediumPurple;
+                        box-shadow: none;
+                        color: $white;
+                        outline: none;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+
+    h2 {
+        color: $darkPurple;
+        font-family: $roboBold;
+
+    }
+    ul {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-colums: 3;
+        gap: 25px;
+        list-style-type: none;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: 10px;
+            a {
+                color: $darkPurple;
+                font-family: $roboBold;
+                font-size: 1.25rem;
+
+                text-decoration: none;
+                @include transition(all .4s ease-in-out);
+
+                span.articleCount {
+                    font-size: 1rem;
+                }
+
+                &:hover,
+                &.active {
+                    background-color: transparent;
+                    border: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                    color: $lightPurple;
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .articleItem {
+        background-color: $lightPurple;
+        border-radius: 20px;
+        min-height: 200px;
+        margin-bottom: 2.5rem;
+        padding: 2rem;
+        position: relative;
+        @include transition(all .4s ease-in-out);
+
+        a {
+            height: 100%;
+            position: absolute;
+            text-decoration: none;
+            width: 100%;
+
+            h4 {
+                color: $white;
+                font-family: $roboMedium;
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            p {
+                color: $white;
+                font-family: $montsReg;
+                font-size: 1rem;
+            }
+            .pageBtn {
+                background-color: $white;
+                border-radius: 100%;
+                bottom: 1.5rem;
+                color: $darkPurple;
+                font-size: 1.25rem;
+                height: 1.25rem;
+                line-height: 1rem;
+                position: absolute;
+                right: 4rem;
+                @include transition(all .4s ease-in-out);
+            }
+
+            &:hover {
+                box-shadow: none;
+                outline: none;
+                text-decoration: none;
+                .pageBtn {
+                    right: 3rem;
+                    transform: rotate(360deg);
+                }
+            }
+        }
+        &:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: scale(1.1);
+
+        }
+    }
+}

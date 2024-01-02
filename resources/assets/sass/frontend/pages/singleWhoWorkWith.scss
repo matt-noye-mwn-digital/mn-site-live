@@ -1,0 +1,72 @@
+.singleWhoWorkWithTop {
+    height: 600px;
+    position: relative;
+
+    img.mainBgImage {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 40;
+        a.backAll {
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            color: $white;
+            display: block;
+            font-family: $montsReg;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            outline: none;
+            text-decoration: none;
+            @include transition(all .4s ease-in-out);
+
+            .fa-chevron-left {
+                font-size: .9rem;
+                margin-right: 10px;
+                @include transition(all .4s ease-in-out);
+            }
+
+            &:hover {
+                background-color: transparent;
+                border: 0;
+                box-shadow: none;
+                color: $lightPurple;
+                outline: none;
+                text-decoration: none;
+
+                .fa-chevron-left {
+                    margin-right: 15px;
+                }
+            }
+        }
+
+        h1 {
+            color: $white;
+            font-family: $roboBold;
+            font-size: 6rem;
+        }
+        p {
+            color: $white;
+            font-family: $montsReg;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+.singleWhoWorkWithMain {
+
+}
